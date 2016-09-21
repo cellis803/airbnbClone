@@ -11,11 +11,11 @@ var assert = chai.assert;
 before(function() {
   db.initDB().then(
         success => {
-            db.loadTestData().then(
-                () => {
-                    console.log("added test data");
-                }
-            );
+            // db.loadTestData().then(
+            //     () => {
+            //         console.log("added test data");
+            //     }
+            // );
         }).catch(err => {
                 console.log(err);
                 response.status(500);
@@ -37,15 +37,23 @@ describe('airbnb Clone DB tests', function () {
             db.getAllListings().should.be.fulfilled;
         });
 
-        it('createNewUser function should return a promise', function() {
-            db.createNewUser().should.be.fulfilled;
+        it('createNewUser function should return a promise', function(done) {
+            
+            var UserObj = function(email, name) {
+                this.email = email;
+                this.name = name;
+            };
+
+            var user = new UserObj(null, "Chris Ellis");
+            
+            //db.createNewUser(user).should.be.fulfilled;
+            db.createNewUser(user).then(done());
+            //done();
         });   
 
         it('createNewListing function should return a promise', function() {
             db.createNewListing().should.be.fulfilled;
         });                  
     });
-
-
    
 });

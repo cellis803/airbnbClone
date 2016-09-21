@@ -101,9 +101,19 @@ module.exports = {
         createNewUser: function(userObj) {
             return new Promise(
                 (resolve, reject) => {
-
-                    resolve();
-                }); 
+                    db.serialize( function() {
+                        var stmt = db.prepare("INSERT into user values (?, ?)");
+                        stmt.run(userObj.email, userObj.name, function(error){
+                            if(error) {
+                                reject(error);
+                            } else {
+                                stmt.finalize();
+                                resolve();
+                            }
+                        })
+                    })
+                }
+            )
         },
 
         createNewListing: function(userObj) {

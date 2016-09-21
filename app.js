@@ -16,7 +16,10 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/index.html');
  });  
 
- 
+var UserObj = function(email, name) {
+    this.email = email;
+    this.name = name;
+};
 
 // app.post('/login', function(request, response) {
   
