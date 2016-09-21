@@ -16,11 +16,6 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/listing.html');
  });  
 
-const UserObj = function(email, name) {
-    this.email = email;
-    this.name = name;
-};
-
 // app.post('/login', function(request, response) {
   
 //     ebayDB.GetUserId(request.body.username).then(
