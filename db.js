@@ -49,7 +49,6 @@ module.exports = {
                             "FOREIGN KEY (email) REFERENCES user(email), " +
                             "FOREIGN KEY (listingId) REFERENCES listing(listingId) " +
                             ") WITHOUT ROWID ");
-                    //console.log("tables have been created :)");
                     resolve();
                 });
             }).then(() => console.log("tables have been created"));
@@ -80,6 +79,40 @@ module.exports = {
             });
     },
 
+        getAllListings: function() {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize(function () {
+                        db.all("SELECT * " +
+                                "from listings ",
+
+                            function (err, rows) {
+                                if (err) {
+                                    reject("something went wrong");                            
+                                } else {
+                                    resolve(rows);
+                                }
+
+                        });
+                    });
+                });            
+        },
+
+        createNewUser: function(userObj) {
+            return new Promise(
+                (resolve, reject) => {
+
+                    resolve();
+                }); 
+        },
+
+        createNewListing: function(userObj) {
+            return new Promise(
+                (resolve, reject) => {
+
+                    resolve();
+                }); 
+        },
 //    GetAllAuctions: function () {
 //         return new Promise(
 //             (resolve, reject) => {
