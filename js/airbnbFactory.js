@@ -1,17 +1,25 @@
  
 var app = angular.module('airbnbApp');
- 
- app.factory('airbnbFactory', function($http) {
 
-     function getListings() {
-      //return $http.get('static/data/airbnb.json');
-      return $http.get('/listings');
-    }
+app.factory('airbnbFactory', function($http) {
 
-    return {
-      getListings: getListings
-    } 
+   return {
+      createNewUser: function(userObj) {
+        return $http.post('/user', userObj);
+      },
 
-  });
+      addListing: function(listingObj) {
+        return $http.post('/listing', listingObj);
+      },
+
+      getListings: function() {
+          return $http.get('/listings');
+      },
+
+      getListingById: function(listingId) {
+        return $http.get('/listings/' + listingId);
+      }
+   };
+});
 
  

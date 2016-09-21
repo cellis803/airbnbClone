@@ -88,12 +88,17 @@ module.exports = {
             });
     },
 
-        getAllListings: function() {
+        getAllListings: function(listingId) {
+
+            var listingSQL = "SELECT * from listing ";
+            if (listingId) {
+                listingSQL = listingSQL + "where listingId = " + listingId;
+            }
+
             return new Promise(
                 (resolve, reject) => {
                     db.serialize(function () {
-                        db.all("SELECT * " +
-                                "from listing ",
+                        db.all(listingSQL,
 
                             function (err, rows) {
                                 if (err) {

@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/listing.html');
  });  
 
-var UserObj = function(email, name) {
+const UserObj = function(email, name) {
     this.email = email;
     this.name = name;
 };
@@ -33,78 +33,47 @@ var UserObj = function(email, name) {
 //         });
 // });
 
-// app.post('/user', function (request, response) {
-//     console.log("add a user");
-//     var name = request.body.name;
-//     ebayDB.AddUser(name).then(
-//         () => {
-//             response.send("user added");
-//         }).catch(err => {
-//             console.log(err);
-//             response.status(500);
-//             response.send(err);
-//         });
-// });
+app.post('/user', function (request, response) {
+    console.log("add a user");
+    airbnbDB.createNewUser(request.body).then(
+        () => {
+            response.send("user added");
+        }).catch(err => {
+            console.log(err);
+            response.status(500);
+            response.send(err);
+        });
+});
 
-// app.post('/bid', function (request, response) {
-//     console.log("bidding on an item");
-//     var userId = request.body.userId;
-//     var auctionId = request.body.auctionId;
-//     var bidValue = request.body.bidValue;
+app.post('/listing', function (request, response) {
+    console.log("add listing");
 
-//     console.log(userId +  ", " + auctionId + ", " + bidValue);
-//     ebayDB.AddBid(userId, auctionId, bidValue).then(
-//         () => {
-//             ebayDB.GetAnAuction(auctionId).then(
-//             auction => {
-//                 response.send(auction);
+    airbnbDB.addListing(request.body).then(
+        () => {
+            response.send("listing created");
+        }).catch(err => {
+            console.log(err);
+            response.status(500);
+            response.send(err);
+        });
+});
 
-//             })
-//         }).catch(err => {
-//             console.log(err);
-//             response.status(500);
-//             response.send(err);
-//         });
-// });
+app.get('/listings/:listingId', function (request, response) {
+    console.log("get specific listing");
+    var listingId = request.params.listingId;
+    airbnbDB.getAllListings(listingId).then(
+        listings => {
+            response.send(listings[0]);
 
-// app.post('/auction', function (request, response) {
-//     console.log("add auction item");
-//     var userId = request.body.userId;
-//     var title = request.body.title;
-//     var description = request.body.description;
-//     var startingBid = request.body.startingBid;
-//     var duration = request.body.duration;
-//     ebayDB.AddAuction(userId, title, description, startingBid, duration).then(
-//         () => {
-//             ebayDB.GetAllAuctions().then(
-//             auctions => {
-//                 response.send(auctions);
+        }).catch(
+        err => {
+            console.log(err);
+            response.status(500);
+            response.send();
+        });
+});
 
-//             })
-//         }).catch(err => {
-//             console.log(err);
-//             response.status(500);
-//             response.send(err);
-//         });
-// });
-
-// app.get('/auctions/:auctionId', function (request, response) {
-//     console.log("get specific auction item");
-//     var auctionId = request.params.auctionId;
-//     ebayDB.GetAnAuction(auctionId).then(
-//         auctions => {
-//             response.send(auctions);
-
-//         }).catch(
-//         err => {
-//             //handle all errors
-//             console.log(err);
-//             response.status(500);
-//             response.send();
-//         });
-// });
-
-app.get('/listings/', function (request, response) {
+app.get('/listings', function (request, response) {
     console.log("getting all listings");
     airbnbDB.getAllListings().then(
         listings => {
@@ -112,7 +81,6 @@ app.get('/listings/', function (request, response) {
 
         }).catch(
         err => {
-            //handle all errors
             console.log(err);
             response.status(500);
             response.send();
@@ -133,7 +101,6 @@ var server = app.listen(8080, function () {
    
         }).catch(
         err => {
-            //handle all errors
             console.log(err);
         });
 });
