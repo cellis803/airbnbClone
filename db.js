@@ -11,10 +11,10 @@ module.exports = {
 
                     console.log("CREATE TABLE IF NOT EXISTS user ");
                     db.run("CREATE TABLE IF NOT EXISTS user (" + 
-                            "email TEXT NOT NULL, " +
+                            "email TEXT UNIQUE NOT NULL, " +
                             "name TEXT NOT NULL, " + 
                             "PRIMARY KEY (email) " + 
-                            ") WITHOUT ROWID ");
+                            ")");
 
                     console.log("CREATE TABLE IF NOT EXISTS listing ");
                     db.run("CREATE TABLE IF NOT EXISTS listing (" +
@@ -49,10 +49,10 @@ module.exports = {
                             "FOREIGN KEY (email) REFERENCES user(email), " +
                             "FOREIGN KEY (listingId) REFERENCES listing(listingId) " +
                             ") WITHOUT ROWID ");
-                    console.log("tables have been created :)");
+                    //console.log("tables have been created :)");
                     resolve();
                 });
-            });
+            }).then(() => console.log("tables have been created"));
     },
   
     loadTestData: function() {
