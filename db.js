@@ -9,8 +9,8 @@ module.exports = {
                 db.serialize(function () {
                     console.log("creating tables...");
 
-                    // console.log("CREATE TABLE IF NOT EXISTS user (name TEXT NOT NULL)");
-                    // db.run("CREATE TABLE IF NOT EXISTS user (name TEXT NOT NULL)");
+                    console.log("CREATE TABLE IF NOT EXISTS user (email TEXT NOT NULL, name TEXT NOT NULL, PRIMARY KEY (email)) WITHOUT ROWID");
+                    db.run("CREATE TABLE IF NOT EXISTS user (email TEXT NOT NULL, name TEXT NOT NULL, PRIMARY KEY (email)) WITHOUT ROWID");
                     // console.log("CREATE TABLE IF NOT EXISTS auction (userId INTEGER NOT NULL, title TEXT NOT NULL, description TEXT, startingBid REAL NOT NULL, endDateTime DATETIME NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid))");
                     // db.run("CREATE TABLE IF NOT EXISTS auction (userId INTEGER NOT NULL, title TEXT NOT NULL, description TEXT, startingBid REAL, endDateTime DATETIME NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid))");
                     // console.log("CREATE TABLE IF NOT EXISTS bid (userId INTEGER NOT NULL, auctionId INTEGER NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid), FOREIGN KEY(auctionId) REFERENCES auction(rowid))");
