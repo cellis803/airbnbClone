@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 airbnb.db
+airbnb.db-journal
 
 # Logs
 logs
