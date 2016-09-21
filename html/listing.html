@@ -26,13 +26,12 @@
             <div class="thumbnail">
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
 
-               <div class="caption">              
-                    <h3><i class="glyphicon glyphicon-tag"></i> {{airbnblisting.price | currency}}/{{airbnblisting.duration}}</h3>
+               <div class="caption">             
+                    <h3><i class="glyphicon glyphicon-tag"></i>{{airbnblisting.price | currency}}/{{airbnblisting.duration}}&nbsp;&nbsp;<span class="label label-success">{{airbnblisting.type}}</span>
+                    </h3>
                     <h4><i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/>
                      {{airbnblisting.city}}&nbsp;&nbsp;{{airbnblisting.state}}&nbsp;&nbsp;{{airbnblisting.zip}}<br/>
-                     {{airbnblisting.country}}                     
-                      <span class="label label-primary label-sm">{{airbnblisting.type}}</span>
-                      
+                     {{airbnblisting.country}}              
                     </h4>    
                     <h4>
                       <span class="label label-primary">Description: {{airbnblisting.description}}</span>
@@ -41,13 +40,16 @@
                       <span class="label label-primary">Pool: {{airbnblisting.pool}}</span>
                       <span class="label label-primary">SqFt: {{airbnblisting.area}}</span>
                       <br/>
-                      <span class="label label-primary">Contact: {{airbnblisting.name}}</span>
-                      <span class="label label-primary">Phone: {{airbnblisting.phone}}</span>
+                      <br/>
+                      <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{airbnblisting.name}}</span></span>
+                      <br/>
+                      <span class="glyphicon glyphicon-earphone">&nbsp;<span class="text-left">{{airbnblisting.phone}}</span></span>
                     </h4>
                               
               </div>
             </div>                
-          </div>       
+          </div>    
+ 
  
     </body>
     
