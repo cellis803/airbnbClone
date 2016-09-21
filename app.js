@@ -36,8 +36,8 @@ const UserObj = function(email, name) {
 app.post('/user', function (request, response) {
     console.log("add a user");
     airbnbDB.createNewUser(request.body).then(
-        () => {
-            response.send("user added");
+        (rowid) => {
+            response.send(rowid);
         }).catch(err => {
             console.log(err);
             response.status(500);
@@ -49,8 +49,8 @@ app.post('/listing', function (request, response) {
     console.log("add listing");
 
     airbnbDB.createNewListing(request.body).then(
-        () => {
-            response.send("listing created");
+        (rowid) => {
+            response.send(rowid);
         }).catch(err => {
             console.log(err);
             response.status(500);

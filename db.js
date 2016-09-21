@@ -122,7 +122,7 @@ module.exports = {
                                 reject(error);
                             } else {
                                 stmt.finalize();
-                                resolve();
+                                resolve(this.lastID);
                             }
                         })
                     })
@@ -160,7 +160,8 @@ module.exports = {
                                     reject(error);
                                 } else {
                                     stmt.finalize();
-                                    resolve();
+                                    console.log("Inserted rowid=" + this.lastID);
+                                    resolve(this.lastID);
                                 }
                             });
                     })
