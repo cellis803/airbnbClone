@@ -5,6 +5,7 @@ var app = angular.module('airbnbApp');
 
      function getListings() {
       return $http.get('static/data/airbnb.json');
+      //return $http.get('/listings');
     }
 
     return {

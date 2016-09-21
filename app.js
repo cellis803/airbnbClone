@@ -104,20 +104,20 @@ var UserObj = function(email, name) {
 //         });
 // });
 
-// app.get('/auctions/', function (request, response) {
-//     console.log("getting the auction feed");
-//     ebayDB.GetAllAuctions().then(
-//         auctions => {
-//             response.send(auctions);
+app.get('/listings/', function (request, response) {
+    console.log("getting all listings");
+    airbnbDB.getAllListings().then(
+        listings => {
+            response.send(listings);
 
-//         }).catch(
-//         err => {
-//             //handle all errors
-//             console.log(err);
-//             response.status(500);
-//             response.send();
-//         });
-// });
+        }).catch(
+        err => {
+            //handle all errors
+            console.log(err);
+            response.status(500);
+            response.send();
+        });
+});
 
 var server = app.listen(8080, function () {
     console.log('Starting airbnb clone server...');

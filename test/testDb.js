@@ -33,11 +33,15 @@ describe('airbnb Clone DB tests', function () {
     });
 
     describe('testing basic funtions', function() {
-        it('getAllListings function should return a promise', function() {
-            db.getAllListings().should.be.fulfilled;
+        it('getAllListings function should return a promise', function(done) {
+            db.getAllListings().then(
+                (listings) => {
+                    console.log(listings);
+                    done();
+                });
         });
 
-        it('createNewUser function should return a promise', function(done) {
+        it('createNewUser function should return a promise', function() {
             
             var UserObj = function(email, name) {
                 this.email = email;
@@ -46,9 +50,8 @@ describe('airbnb Clone DB tests', function () {
 
             var user = new UserObj(null, "Chris Ellis");
             
-            //db.createNewUser(user).should.be.fulfilled;
-            db.createNewUser(user).then(done());
-            //done();
+            db.createNewUser(user).should.be.fulfilled;
+
         });   
 
         it('createNewListing function should return a promise', function() {

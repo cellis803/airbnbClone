@@ -91,7 +91,7 @@ module.exports = {
                 (resolve, reject) => {
                     db.serialize(function () {
                         db.all("SELECT * " +
-                                "from listings ",
+                                "from listing ",
 
                             function (err, rows) {
                                 if (err) {
