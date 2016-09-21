@@ -12,7 +12,7 @@ before(function() {
   db.initDB().then(
         success => {
             db.loadTestData().then(
-                success => {
+                () => {
                     console.log("added test data");
                 }
             );
@@ -30,6 +30,22 @@ describe('airbnb Clone DB tests', function () {
         it('should pass', function() {
             assert.isTrue(true);
         });
-    }); 
+    });
+
+    describe('testing basic funtions', function() {
+        it('getAllListings function should return a promise', function() {
+            db.getAllListings().should.be.fulfilled;
+        });
+
+        it('createNewUser function should return a promise', function() {
+            db.createNewUser().should.be.fulfilled;
+        });   
+
+        it('createNewListing function should return a promise', function() {
+            db.createNewListing().should.be.fulfilled;
+        });                  
+    });
+
+
    
 });
