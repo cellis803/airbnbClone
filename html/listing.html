@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>AirbNb</title>
+        <title>AirbNb</title>        
         <link rel="stylesheet" href="static/node_modules/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="static/styles/airbnb.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
@@ -25,12 +25,12 @@
            
       <div class="container">       
        
-        <div class="col-sm-12 price-form">      
-          <div class="row price-form-row" ng-if="!addListing && !editListing">
+        <div class="col-sm-12 listingrental-form">      
+          <div class="row listingrental-form-row" ng-if="!addListing && !editListing">
             <div class="col-sm-6">
               <div class="input-group">
                 <span class="input-group-addon">Min Rental Amount</span>
-                <select name="minPrice" id="minPrice" ng-model="rentalAmt.min" class="form-control">
+                <select type="select" name="minPrice" id="minPrice" ng-model="rentalAmt.min" class="form-control">
                   <option value="100">$100</option>
                   <option value="200">$200</option>
                   <option value="300">$300</option>
@@ -67,7 +67,7 @@
         </div>
 
 
-       <div class="col-sm-3" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
+       <div class="col-sm-4" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
             <div class="thumbnail">
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
 
