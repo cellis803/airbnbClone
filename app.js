@@ -48,7 +48,7 @@ app.post('/user', function (request, response) {
 app.post('/listing', function (request, response) {
     console.log("add listing");
 
-    airbnbDB.addListing(request.body).then(
+    airbnbDB.createNewListing(request.body).then(
         () => {
             response.send("listing created");
         }).catch(err => {
