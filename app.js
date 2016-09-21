@@ -8,8 +8,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use('/', express.static('html'));
-app.use('/js/', express.static('js'));
+
+
+app.use('/static', express.static(__dirname +'/'));
+ 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/html/index.html');
+ });  
+
+ 
 
 // app.post('/login', function(request, response) {
   
