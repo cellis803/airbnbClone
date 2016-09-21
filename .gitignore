@@ -1,6 +1,6 @@
 .DS_Store
 .idea
-ebay.db
+airbnb.db
 
 # Logs
 logs
