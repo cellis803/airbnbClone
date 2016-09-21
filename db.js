@@ -34,6 +34,7 @@ module.exports = {
                             "phone TEXT, " + 
                             "price REAL, " + 
                             "duration TEXT, " + 
+                            "PRIMARY KEY(listingId), " +
                             "FOREIGN KEY(email) REFERENCES user(email) " + 
                             ") WITHOUT ROWID");
                          
