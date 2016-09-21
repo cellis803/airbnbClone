@@ -9,13 +9,45 @@ module.exports = {
                 db.serialize(function () {
                     console.log("creating tables...");
 
-                    console.log("CREATE TABLE IF NOT EXISTS user (email TEXT NOT NULL, name TEXT NOT NULL, PRIMARY KEY (email)) WITHOUT ROWID");
-                    db.run("CREATE TABLE IF NOT EXISTS user (email TEXT NOT NULL, name TEXT NOT NULL, PRIMARY KEY (email)) WITHOUT ROWID");
-                    // console.log("CREATE TABLE IF NOT EXISTS auction (userId INTEGER NOT NULL, title TEXT NOT NULL, description TEXT, startingBid REAL NOT NULL, endDateTime DATETIME NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid))");
-                    // db.run("CREATE TABLE IF NOT EXISTS auction (userId INTEGER NOT NULL, title TEXT NOT NULL, description TEXT, startingBid REAL, endDateTime DATETIME NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid))");
-                    // console.log("CREATE TABLE IF NOT EXISTS bid (userId INTEGER NOT NULL, auctionId INTEGER NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid), FOREIGN KEY(auctionId) REFERENCES auction(rowid))");
-                    // db.run("CREATE TABLE IF NOT EXISTS bid (userId INTEGER NOT NULL, auctionId INTEGER NOT NULL, bidValue REAL NOT NULL, dateTime REAL NOT NULL, FOREIGN KEY(userId) REFERENCES user(rowid), FOREIGN KEY(auctionId) REFERENCES auction(rowid))");
+                    console.log("CREATE TABLE IF NOT EXISTS user ");
+                    db.run("CREATE TABLE IF NOT EXISTS user (" + 
+                            "email TEXT NOT NULL, " +
+                            "name TEXT NOT NULL, " + 
+                            "PRIMARY KEY (email) " + 
+                            ") WITHOUT ROWID ");
 
+                    console.log("CREATE TABLE IF NOT EXISTS listing ");
+                    db.run("CREATE TABLE IF NOT EXISTS listing (" +
+                            "listingId INTEGER NOT NULL, " + 
+                            "email TEXT NOT NULL, " + 
+                            "description TEXT, " + 
+                            "type TEXT NOT NULL, " + 
+                            "bedrooms INTEGER, " + 
+                            "bathrooms INTEGER, " + 
+                            "pool INTEGER NOT NULL, " + 
+                            "address1 TEXT, " + 
+                            "address2 TEXT, " + 
+                            "city TEXT, " + 
+                            "state TEXT, " + 
+                            "zip TEXT, " +
+                            "country TEXT, " + 
+                            "phone TEXT, " + 
+                            "price REAL, " + 
+                            "duration TEXT, " + 
+                            "FOREIGN KEY(email) REFERENCES user(email) " + 
+                            ") WITHOUT ROWID");
+                         
+                    console.log("CREATE TABLE IF NOT EXISTS reservation ");
+                    db.run("CREATE TABLE IF NOT EXISTS reservation (" + 
+                            "reservationId INTEGER NOT NULL, " +
+                            "email TEXT NOT NULL, " +
+                            "listingId TEXT NOT NULL, " +
+                            "startDate TEXT NOT NULL, " +
+                            "endDATE TEXT NOT NULL, " +
+                            "PRIMARY KEY (reservationId), " + 
+                            "FOREIGN KEY (email) REFERENCES user(email), " +
+                            "FOREIGN KEY (listingId) REFERENCES listing(listingId), " +
+                            ") WITHOUT ROWID ");
                     console.log("tables have been created :)");
                     resolve();
                 });
