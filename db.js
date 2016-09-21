@@ -34,6 +34,9 @@ module.exports = {
                             "phone TEXT, " + 
                             "price REAL, " + 
                             "duration TEXT, " + 
+                            "image TEXT, " +
+                            "petsAllowed INTEGER, " +
+                            "area INTEGER, " +
                             "PRIMARY KEY(listingId), " +
                             "FOREIGN KEY(email) REFERENCES user(email) " + 
                             ") WITHOUT ROWID");
@@ -70,11 +73,10 @@ module.exports = {
                     db.run("INSERT INTO user VALUES ('cellis803@gmail.com','Chris')");
                     db.run("INSERT INTO user VALUES ('akashPandya@gmail.com','Akash')");
                     
-                    db.run("INSERT INTO listing VALUES (1,'carolynjm4@verizon.net','Remote lighthouse','house',2,1,0,'1 Lighthouse Way','','Bath','ME','04530','USA','8881234567','500','one week')");
-                    db.run("INSERT INTO listing VALUES (2,'cellis803@gmail.com','Pirates Cove','townhouse',3,2,1,'506 Captain Hook Drive','','Myrtle Beach','SC','29572','USA','8882214567','750','two weeks')");
-                    db.run("INSERT INTO listing VALUES (3,'carolynjm4@verizon.net','View of Lake Superior','condo',1,1,0,'500 Lakeview','','Wayupthere','WI','09998','USA','8882234567','250','one week')");
-                    db.run("INSERT INTO listing VALUES (4,'akashPandya@gmail.com','Cricket Hangout','room',1,1,1,'222 Bowler Lane','','London','','90909','GBR','0108882234555','100','one week')");
-
+                    db.run("INSERT INTO listing VALUES (1,'carolynjm4@verizon.net','Remote lighthouse','house',2,1,0,'1 Lighthouse Way','','Bath','ME','04530','USA','8881234567','500','one week','img1.png',1000,0)");
+                    db.run("INSERT INTO listing VALUES (2,'cellis803@gmail.com','Pirates Cove','townhouse',3,2,1,'506 Captain Hook Drive','','Myrtle Beach','SC','29572','USA','8882214567','750','two weeks','img2.png',2000,1)");
+                    db.run("INSERT INTO listing VALUES (3,'carolynjm4@verizon.net','View of Lake Superior','condo',1,1,0,'500 Lakeview','','Wayupthere','WI','09998','USA','8882234567','250','one week','img3.png',1500,1)");
+                    db.run("INSERT INTO listing VALUES (4,'akashPandya@gmail.com','Cricket Hangout','room',1,1,1,'222 Bowler Lane','','London','','90909','GBR','0108882234555','100','one week','img4.png',0,0)");
 
                     db.run("INSERT INTO reservation VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
