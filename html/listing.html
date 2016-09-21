@@ -22,14 +22,14 @@
       </nav>
      
  
-       <div class="col-sm-4" ng-repeat="airbnblisting in airbnblistings">          
+       <div class="col-sm-3" ng-repeat="airbnblisting in airbnblistings">          
             <div class="thumbnail">
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
 
                <div class="caption">              
                     <h3><i class="glyphicon glyphicon-tag"></i> {{airbnblisting.price | currency}}/{{airbnblisting.duration}}</h3>
                     <h4><i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/>
-                     {{airbnblisting.city}}&nbsp;&nbsp;{airbnblisting.state}}&nbsp;&nbsp;{airbnblisting.zip}}<br/>
+                     {{airbnblisting.city}}&nbsp;&nbsp;{{airbnblisting.state}}&nbsp;&nbsp;{{airbnblisting.zip}}<br/>
                      {{airbnblisting.country}}                     
                       <span class="label label-primary label-sm">{{airbnblisting.type}}</span>
                       
