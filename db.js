@@ -90,7 +90,8 @@ module.exports = {
 
         getAllListings: function(listingId) {
 
-            var listingSQL = "SELECT * from listing ";
+            var listingSQL = "SELECT listing.*, u.name from listing " +
+                             "INNER JOIN user u on listing.email = u.email ";
             if (listingId) {
                 listingSQL = listingSQL + "where listingId = " + listingId;
             }
