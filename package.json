@@ -18,6 +18,7 @@
   "homepage": "https://github.com/cellis803/airbnbClone#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "express": "^4.14.0",
