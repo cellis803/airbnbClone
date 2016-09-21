@@ -47,7 +47,7 @@ module.exports = {
                             "endDATE TEXT NOT NULL, " +
                             "PRIMARY KEY (reservationId), " + 
                             "FOREIGN KEY (email) REFERENCES user(email), " +
-                            "FOREIGN KEY (listingId) REFERENCES listing(listingId), " +
+                            "FOREIGN KEY (listingId) REFERENCES listing(listingId) " +
                             ") WITHOUT ROWID ");
                     console.log("tables have been created :)");
                     resolve();
