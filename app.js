@@ -16,17 +16,17 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/listing.html');
  });  
 
-// app.post('/login', function(request, response) {
+app.post('/login', function(request, response) {
   
-//     ebayDB.GetUserId(request.body.username).then(
-//         user => {
-//             response.send(user);
-//         }).catch(err => {
-//                 console.log(err);
-//                 response.status(500);
-//                 response.send(err);                
-//         });
-// });
+    airbnbDB.getUserId(request.body.username).then(
+        user => {
+            response.send(user);
+        }).catch(err => {
+                console.log(err);
+                response.status(500);
+                response.send(err);                
+        });
+});
 
 app.post('/user', function (request, response) {
     console.log("add a user");
