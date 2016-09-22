@@ -6,7 +6,8 @@ module.exports = function () {
 
        this.When(/^I navigate to the airbnb site$/, function (done) {                                                                                                                                                                                                                                                                              
          driver.get("http://localhost:8080").then(function() {
-             done();
+            driver.wait(until.elementLocated(by.css('h2.form-signin-heading')), 10000, 'Could not locate the child element within the time specified');
+            done();    
          });
          
                                                                                                                                                                    
@@ -24,5 +25,15 @@ module.exports = function () {
                 done(); 
                                                                                                                                                                                 
             });  
-      });       
+      });     
+
+       this.Then(/^I should view the login page$/, function (done) {                                                                                                                    
+            driver.findElements(by.xpath("/html/body/div/form/h2[./text()='Take Me Away:']")).then(function (elements) {
+                expect(elements.length).to.not.equal(0);
+                done(); 
+                                                                                                                                                                                
+            });                                                                                                                                                          
+       });      
+
+        
 };
