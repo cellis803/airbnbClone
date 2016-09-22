@@ -19,16 +19,16 @@ Background:
     And I enter "MD" into the "State" field
     And I enter "21047" into the "Zip" field
     And I enter "USA" into the "Country" field
-    And I enter "House" into the "Property Type" field
+    And I select "House" in the "Property Type" field
     And I enter "2000" into the "Price" field
-    And I enter "weekly" into the "Duration" field
+    And I select "Weekly" in the "Duration" field
     And I enter "Dream Vacation Home" into the "Title" field
     And I enter "you will not be disappointed" into the "Description" field
     And I enter "3" into the "Beds" field
     And I enter "2" into the "Baths" field
     And I enter "1000" into the "Area SqFt" field
-    And I enter "Yes" into the "Pool" field
-    And I enter "Yes" into the "Pets Allowed" field
+    And I select "Yes" in the "Pool" field
+    And I select "Yes" in the "Pets Allowed" field
     And I enter "cellis803@gmail.com" into the "Contact" field
     And I enter "4109655500" into the "Phone" field
     And I click on "Add"
