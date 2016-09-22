@@ -1,4 +1,4 @@
-# ./features/google-search.feature
+# ./features/login.feature
  
 Feature: Logging in to airbnb app
   As an internet user
@@ -9,3 +9,4 @@ Feature: Logging in to airbnb app
     Given the airbnb application is started
     When I navigate to the airbnb site
     Then I should see some listings
+
