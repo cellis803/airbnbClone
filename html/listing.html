@@ -150,7 +150,16 @@
               </div>
             </div>
              
-            
+            <div class="row listing-form-row">
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon">Title</span>
+                  <textarea type="text" placeholder="Title" class="form-control" ng-model="newListing.title"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-6">                
+              </div>
+            </div>
             
             <div class="row listing-form-row">
               <div class="col-sm-12">
@@ -163,7 +172,7 @@
 
 
               <div class="row listing-form-row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                   <div class="input-group">
                     <span class="input-group-addon">Beds</span>
                     <input type="text" placeholder="Bedrooms" class="form-control" ng-model="newListing.bedrooms">
@@ -194,7 +203,7 @@
                   </div>
                 </div> 
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                   <div class="input-group">
                     <span class="input-group-addon">Pets Allowed</span>                  
                     <select type="select" name="petsAllowed" id="petsAllowed" class="form-control" ng-model="newListing.petsAllowed">
@@ -205,8 +214,24 @@
                 </div> 
 
               </div>
+
+              <div class="row listing-form-row">                
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">Contact</span>
+                    <input type="text" placeholder="Contact Person" class="form-control" ng-model="newListing.email">
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">Phone</span>
+                    <input type="text" placeholder="Phone" class="form-control" ng-model="newListing.phone">
+                  </div>
+                </div> 
+              </div>
  
-            <button class="btn btn-primary listing-button" ng-click="addCrib(newListing)" ng-show="addListing">Add</button>
+            <button class="btn btn-primary listing-button" ng-click="createListing(newListing)" ng-show="addListing">Add</button>
 
           </div>
           
@@ -215,6 +240,7 @@
 
        <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
             <div class="thumbnail">
+              <h3>{{airbnblisting.title}}</h3>
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
 
                <div class="caption">             

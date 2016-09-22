@@ -18,5 +18,18 @@ app.controller('airbnbCtrl', function($http, $scope, airbnbFactory) {
          console.log(error);
     }); 
 
+    $scope.createListing = function(newListing) {
+      if(newListing) {
+        newListing.image = "temp.png";
+        $scope.airbnblistings.push(newListing);
+        airbnbFactory.addListing(newListing).success(function(data) {
+             console.log(data);
+         }).error(function(error) {
+              console.log(error);
+         }); 
+        $scope.newListing = {};
+      }
+    }
+
 
 });
