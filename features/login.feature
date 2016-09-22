@@ -4,9 +4,19 @@ Feature: Logging in to airbnb app
 
   Background:
     Given the airbnb application is started
- 
-  Scenario: Access the airbnb home page
-   
     When I navigate to the airbnb site
+ 
+  Scenario: View the Login page
+    Then I should view the login page
+
+  Scenario: Successful Login
+    And I enter "cellis803@gmail.com" into the "Email" field
+    And I enter "test" into the "Password" field
+    And I click on "Take Me Away"
     Then I should see some listings
+
+  Scenario: Unsuccessful Login  
+    And I enter "cellis803@gmail.com" into the "Email" field
+    And I click on "Take Me Away"
+    Then I should view the login page
 

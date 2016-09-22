@@ -6,7 +6,9 @@ Feature: Creating a new listing
 Background:
   Given the airbnb application is started
   When I navigate to the airbnb site
-  And I am logged in
+  And I enter "cellis803@gmail.com" into the "Email" field
+  And I enter "test" into the "Password" field
+  And I click on "Take Me Away"
 
   Scenario: View the add listing page 
     And I click on "Add Listing"
@@ -20,9 +22,9 @@ Background:
     And I enter "21047" into the "Zip" field
     And I enter "USA" into the "Country" field
     And I select "House" in the "Property Type" field
-    And I enter "2000" into the "Price" field
+    And I enter "500" into the "Price" field
     And I select "Weekly" in the "Duration" field
-    And I enter "Dream Vacation Home" into the "Title" field
+    And I enter "Cucumber Test Listing" into the "Title" field
     And I enter "you will not be disappointed" into the "Description" field
     And I enter "3" into the "Beds" field
     And I enter "2" into the "Baths" field
