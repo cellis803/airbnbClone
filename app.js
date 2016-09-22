@@ -75,7 +75,9 @@ app.get('/listings', function (request, response) {
     console.log("getting all listings");
     airbnbDB.getAllListings().then(
         listings => {
+            console.log(listings.length);
             response.send(listings);
+
 
         }).catch(
         err => {
