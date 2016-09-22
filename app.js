@@ -91,7 +91,11 @@ var server = app.listen(8080, function () {
         val => {
 
             if (process.argv[2] === "-loadTestData") {
-                airbnbDB.loadTestData();
+                airbnbDB.loadTestData().then(
+                   () => {app.emit('running', null);} 
+                );
+            } else {
+                app.emit('running', null);
             }
    
         }).catch(
@@ -99,4 +103,5 @@ var server = app.listen(8080, function () {
             console.log(err);
         });
 });
-module.exports = server;
+
+module.exports = app;

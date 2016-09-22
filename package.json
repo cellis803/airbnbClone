@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "pretest": "start node app.js ",
     "test": "node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports "
   },
   "repository": {
