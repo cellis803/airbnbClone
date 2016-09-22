@@ -1,3 +1,5 @@
+var airbnbApp = require('../../app.js');
+
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
@@ -12,7 +14,7 @@ module.exports = function () {
        });  
  
       this.Then(/^I should see some listings$/, function (done) {                                                                                                                                            
-            driver.wait(until.elementsLocated(by.css('.airbnblisting')), 10000);
+            //driver.wait(until.elementsLocated(by.css('.airbnblisting')), 10000);
     
             driver.findElements(by.css('.airbnblisting')).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
