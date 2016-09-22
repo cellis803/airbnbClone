@@ -1,11 +1,9 @@
-var airbnbApp = require('../../app.js');
-
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
-            airbnbApp.on('running', function() {
+ //           shared.server.airbnbApp.on('running', function() {
                 done();
-            });
+ //           });
                                                                                                                                                                                  
        });  
 
