@@ -1,5 +1,19 @@
+var app = angular.module('airbnbApp', ['ngRoute']);
 
-var app = angular.module('airbnbApp', []);
+app.config(function($routeProvider) {
+    $routeProvider.
+    when('/', {
+        templateUrl: 'login.html',
+        controller: 'airbnbCtrl'
+    }).
+    when('/login', {
+        templateUrl: 'listing.html',
+        controller: 'airbnbCtrl'
+    }).
+    otherwise({
+        redirectTo: '/'
+    });
+});
 
 app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
@@ -37,5 +51,8 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
   $scope.handleLogin = function (email) {
     console.log('email:' + email);
     $scope.useremail = email;
+    window.location = "/#/login";
+
+
   }
 });

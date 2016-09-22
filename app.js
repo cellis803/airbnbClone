@@ -9,12 +9,10 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-
 app.use('/static', express.static(__dirname +'/'));
- 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/html/index.html');
- });  
+app.use('/', express.static('html'));
+app.use('/js/', express.static('js'));
+app.use('/styles/', express.static('styles'));
 
 app.post('/login', function(request, response) {
   
