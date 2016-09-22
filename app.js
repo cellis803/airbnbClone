@@ -32,7 +32,8 @@ app.post('/user', function (request, response) {
     console.log("add a user");
     airbnbDB.createNewUser(request.body).then(
         (rowid) => {
-            response.send(rowid);
+            response.json({"rowid":rowid});
+            response.send();
         }).catch(err => {
             console.log(err);
             response.status(500);
@@ -45,7 +46,9 @@ app.post('/listing', function (request, response) {
 
     airbnbDB.createNewListing(request.body).then(
         (rowid) => {
-            response.send(rowid);
+
+            response.json({"rowid":rowid});
+            response.send();
         }).catch(err => {
             console.log(err);
             response.status(500);
@@ -91,7 +94,11 @@ var server = app.listen(8080, function () {
         val => {
 
             if (process.argv[2] === "-loadTestData") {
-                airbnbDB.loadTestData();
+                airbnbDB.loadTestData().then(
+                   () => {app.emit('running', null);} 
+                );
+            } else {
+                app.emit('running', null);
             }
    
         }).catch(
@@ -99,4 +106,5 @@ var server = app.listen(8080, function () {
             console.log(err);
         });
 });
-module.exports = server;
+
+module.exports = app;

@@ -1,13 +1,17 @@
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
-                                                                                                                                             
-         done();                                                                                                                                                                         
+ //           shared.server.airbnbApp.on('running', function() {
+                done();
+ //           });
+                                                                                                                                                                                 
        });  
 
        this.When(/^I navigate to the airbnb site$/, function (done) {                                                                                                                                                                                                                                                                              
-         driver.get("http://localhost:8080");
-         done();
+         driver.get("http://localhost:8080").then(function() {
+             done();
+         });
+         
                                                                                                                                                                    
        });  
  
@@ -16,9 +20,8 @@ module.exports = function () {
     
             driver.findElements(by.css('.airbnblisting')).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
-    
                 done(); 
                                                                                                                                                                                 
-        });  
+            });  
       });       
 };
