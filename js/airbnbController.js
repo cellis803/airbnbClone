@@ -10,7 +10,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
   $scope.rentalAmt = {
     min: 0,
-    max: 1000
+    max: 100000
   }
 
   airbnbFactory.getListings().success(function (data) {
@@ -19,19 +19,22 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     console.log(error);
   });
 
-  $scope.createListing = function (newListing) {
-    if (newListing) {
-      newListing.image = "temp.png";
-      airbnbFactory.addListing(newListing).success(function (data) {
-        console.log('rowid:' + data.rowid);
-        newListing.rowid = data.rowid;
-      }).error(function (error) {
-        console.log(error);
-      });
-      $scope.airbnblistings.push(newListing);
-      $scope.newListing = {};
-    }
-  }
+ $scope.createListing = function(newListing) {
+      if(newListing) {        
+        newListing.image =  newListing.image.name;    
+        newListing.name =  newListing.email;  
+        console.log('newListing:' + JSON.stringify(newListing));  
+        airbnbFactory.addListing(newListing).success(function(data) {                
+             console.log('rowid:' + data.rowid);
+             newListing.rowid = data.rowid; 
+             $scope.airbnblistings.push(newListing); 
+             console.log('airbnblistings length:' + $scope.airbnblistings.length);                                
+         }).error(function(error) {
+              console.log(error);
+         });             
+         $scope.newListing = {};         
+      }
+ }
 
   $scope.handleLogin = function (email) {
     console.log('email:' + email);
