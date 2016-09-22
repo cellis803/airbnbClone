@@ -1,12 +1,7 @@
-var airbnbApp = require('../../app.js');
-
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
-            airbnbApp.on('running', function() {
-                done();
-            });
-                                                                                                                                                                                 
+                done();                                                                                                                                                                               
        });  
 
        this.When(/^I navigate to the airbnb site$/, function (done) {                                                                                                                                                                                                                                                                              
@@ -16,6 +11,10 @@ module.exports = function () {
          
                                                                                                                                                                    
        });  
+
+      this.Given(/^I am logged in$/, function (done) {                                                                                                                                          
+            done();                                                                                                                                                                
+      });        
  
       this.Then(/^I should see some listings$/, function (done) {                                                                                                                                            
             driver.wait(until.elementsLocated(by.css('.airbnblisting')), 30000);
