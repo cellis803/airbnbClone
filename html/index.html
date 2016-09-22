@@ -3,24 +3,16 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AirbNb</title>        
+  <title>AirbNb</title>
   <link rel="stylesheet" href="static/node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="static/styles/airbnb.css">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>     
-  <script src="static/js/airbnbController.js"></script>   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
+  <script src="static/js/airbnbController.js"></script>
   <script src="static/js/airbnbFactory.js"></script>
-  <script src="static/js/airbnbFilter.js"></script> 
-  <script src="../js/App.js"></script>    
-
-<style>
-    body {
-      background-color: powderblue;
-    }
-  </style>
-  
+  <script src="static/js/airbnbFilter.js"></script>
 </head>
 
 <body ng-app="airbnbApp" ng-controller="airbnbCtrl">
@@ -33,15 +25,15 @@
   </nav>
 
   <div class="container ">
-    <form ng-submit="login()">
+    <form ng-submit="handleLogin(email)">
       <h2 class="form-signin-heading " style=color:purple>Take Me Away:</h2>
       <h4> To get started, enter your email and password</h4>
         <div class="input-group ">
           <h3>
-          <input type="text " id="email " class="form-control " placeholder="Email address" autofocus required >
+          <input type="text " id="email " class="form-control " ng-model="email" placeholder="Email address" autofocus required >
           <input type="text " id="password " class="form-control " placeholder="Password" required>
          </h3>
-          <button class="btn btn-lg btn-center btn-primary "> <type="submit ">Take Me Away</button>
+          <button class="btn btn-lg btn-center btn-primary " type="submit ">Take Me Away</button>
       </div>
     </form>
   </div>
