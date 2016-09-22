@@ -6,7 +6,9 @@ Feature: Creating a new listing
 Background:
   Given the airbnb application is started
   When I navigate to the airbnb site
-  And I am logged in
+  And I enter "cellis803@gmail.com" into the "Email" field
+  And I enter "test" into the "Password" field
+  And I click on "Take Me Away"
 
   Scenario: View the add listing page 
     And I click on "Add Listing"

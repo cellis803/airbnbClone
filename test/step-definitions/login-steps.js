@@ -1,10 +1,7 @@
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
- //           shared.server.airbnbApp.on('running', function() {
-                done();
- //           });
-                                                                                                                                                                                 
+                done();                                                                                                                                                                               
        });  
 
        this.When(/^I navigate to the airbnb site$/, function (done) {                                                                                                                                                                                                                                                                              
