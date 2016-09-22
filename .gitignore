@@ -43,5 +43,4 @@ jspm_packages
 
 # cucumber reports
 test/reports
-!test/reports/.reports
 
