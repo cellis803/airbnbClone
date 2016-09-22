@@ -14,7 +14,7 @@
             "name": "the airbnb application is started",
             "result": {
               "status": "passed",
-              "duration": 204487563
+              "duration": 306763
             },
             "line": 9,
             "match": {
@@ -27,7 +27,7 @@
             "name": "I navigate to the airbnb site",
             "result": {
               "status": "passed",
-              "duration": 397994
+              "duration": 335273
             },
             "line": 10,
             "match": {
@@ -40,11 +40,11 @@
             "name": "I should see some listings",
             "result": {
               "status": "passed",
-              "duration": 4759986057
+              "duration": 9915060404
             },
             "line": 11,
             "match": {
-              "location": "c:\\Users\\admin\\proj\\airbnbClone\\test\\step-definitions\\login-steps.js:13"
+              "location": "c:\\Users\\admin\\proj\\airbnbClone\\test\\step-definitions\\login-steps.js:14"
             }
           },
           {
@@ -52,7 +52,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 238870518
+              "duration": 2385437981
             },
             "hidden": true,
             "match": {
