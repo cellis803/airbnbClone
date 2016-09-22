@@ -32,7 +32,8 @@ app.post('/user', function (request, response) {
     console.log("add a user");
     airbnbDB.createNewUser(request.body).then(
         (rowid) => {
-            response.send(rowid);
+            response.json({"rowid":rowid});
+            response.send();
         }).catch(err => {
             console.log(err);
             response.status(500);
@@ -45,7 +46,8 @@ app.post('/listing', function (request, response) {
 
     airbnbDB.createNewListing(request.body).then(
         (rowid) => {
-            response.send(rowid);
+            response.json({"rowid":rowid});
+            response.send();
         }).catch(err => {
             console.log(err);
             response.status(500);
