@@ -3,8 +3,10 @@ var airbnbApp = require('../../app.js');
 module.exports = function () {
  
        this.Given(/^the airbnb application is started$/, function (done) {                                                                                                                                    
-                                                                                                                                             
-         done();                                                                                                                                                                         
+            airbnbApp.on('running', function() {
+                done();
+            });
+                                                                                                                                                                                 
        });  
 
        this.When(/^I navigate to the airbnb site$/, function (done) {                                                                                                                                                                                                                                                                              
