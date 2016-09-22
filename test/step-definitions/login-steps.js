@@ -14,6 +14,10 @@ module.exports = function () {
          
                                                                                                                                                                    
        });  
+
+      this.Given(/^I am logged in$/, function (done) {                                                                                                                                          
+            done();                                                                                                                                                                
+      });        
  
       this.Then(/^I should see some listings$/, function (done) {                                                                                                                                            
             driver.wait(until.elementsLocated(by.css('.airbnblisting')), 30000);
