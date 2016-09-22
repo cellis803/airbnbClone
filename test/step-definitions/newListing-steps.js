@@ -1,7 +1,7 @@
  module.exports = function () {
  
        this.When(/^I click on "([^"]*)"$/, function (button, done) {                                                                                                                               
-            driver.findElements(by.xpath("//button[contains(text(),'" + button + "')]")).then(function (elements) {
+            driver.findElements(by.xpath("//button[./text()='" + button + "']")).then(function (elements) {
                 elements[0].click().then(function() {
                     done();
                 });
@@ -19,13 +19,13 @@
 
        this.When(/^I enter "([^"]*)" into the "([^"]*)" field$/, function (text, field, done) {                                                                                                   
            
-            driver.findElements(by.xpath("//div[span[contains(text(),'" + field + "')]]")).then(function (elements) {
+            driver.findElements(by.xpath("//div[span[contains(text(),'" + field + "')]]/descendant::input")).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
-                elements[0].findElements(by.xpath("//input")).then(function(inputs) {
-                    inputs[0].sendKeys(text).then(function() {
+                //elements[0].findElements(by.xpath("input")).then(function(inputs) {
+                    elements[0].sendKeys(text).then(function() {
                         done();
                     });
-                });
+                //});
                                                                                                                                                                                
             });                                                                                                                                                                    
        })   
