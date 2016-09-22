@@ -237,8 +237,8 @@
           
         </div>
 
-
-       <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
+         
+       <div class="col-sm-4" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
             <div class="thumbnail">
               <h3>{{airbnblisting.title}}</h3>
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
@@ -269,7 +269,7 @@
               </div>
             </div>                
           </div>    
- 
+        
       </div>
 
     </body>    

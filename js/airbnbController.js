@@ -21,13 +21,14 @@ app.controller('airbnbCtrl', function($http, $scope, airbnbFactory) {
     $scope.createListing = function(newListing) {
       if(newListing) {
         newListing.image = "temp.png";
-        $scope.airbnblistings.push(newListing);
-        airbnbFactory.addListing(newListing).success(function(data) {
-             console.log(data);
+        airbnbFactory.addListing(newListing).success(function(data) {                
+               console.log('rowid:' + data.rowid);
+               newListing.rowid = data.rowid;               
          }).error(function(error) {
               console.log(error);
          }); 
-        $scope.newListing = {};
+         $scope.airbnblistings.push(newListing);
+         $scope.newListing = {};
       }
     }
 
