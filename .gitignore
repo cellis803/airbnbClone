@@ -44,3 +44,4 @@ jspm_packages
 # cucumber reports
 test/reports/cucumber-report.html
 test/reports/cucumber-report.json
+test/reports/screenshot

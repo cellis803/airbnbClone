@@ -18,7 +18,6 @@ module.exports = function () {
     
             driver.findElements(by.css('.airbnblisting')).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
-    
                 done(); 
                                                                                                                                                                                 
         });  
