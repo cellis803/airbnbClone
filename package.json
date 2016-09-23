@@ -6,6 +6,7 @@
   "scripts": {
     "pretest": "node ./test/cleanDB.js",
     "test": "mocha",
+    "test-jenkins": "set JUNIT_REPORT_PATH=mocha.xml && mocha --colors --reporter mocha-jenkins-reporter",
     "acceptance-tests": "node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects "
   },
   "repository": {
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "cucumber": "^1.3.0",
+    "mocha-jenkins-reporter": "^0.2.6",
     "selenium-cucumber-js": "^1.2.3"
   }
 }
