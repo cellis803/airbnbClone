@@ -164,7 +164,6 @@ module.exports = {
                                     reject(error);
                                 } else {
                                     stmt.finalize();
-                                    console.log("Inserted rowid=" + this.lastID);
                                     resolve(this.lastID);
                                 }
                             });
@@ -176,16 +175,16 @@ module.exports = {
             return new Promise(
                 (resolve, reject) => {
                     db.serialize( function() {
-                        var stmt = db.prepare("DELETE from listing where listing.listingId = ?");
+                        var stmt = db.prepare("DELETE from listing where listing.rowid = ?");
                         stmt.run(listingId, function(error){
                             if(error) {
                                 reject(error);
                             } else {
                                 stmt.finalize();
-                                resolve();
+                                resolve(this.changes);
                             }
-                        })
-                    })
+                        });
+                    });
                 }
             );
         }

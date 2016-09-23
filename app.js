@@ -44,6 +44,7 @@ app.post('/listing', function (request, response) {
 
     airbnbDB.createNewListing(request.body).then(
         (rowid) => {
+            console.log(request.body);
 
             response.json({"rowid":rowid});
             response.send();
