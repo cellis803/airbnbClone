@@ -51,12 +51,12 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
        console.log('listingEdit:' + JSON.stringify(listing));
        $scope.existingListing = {};
        $scope.editListing = false;
-      /* airbnbFactory.editListingData(listing).success(function () {
+      airbnbFactory.editListingData(listing).success(function () {
          $scope.existingListing = {};
          $scope.editListing = false;
       }).error(function (error) {
           console.log(error);
-      });  */   
+      });   
     }
 
     $scope.deleteListing = function(listing) {
@@ -65,14 +65,14 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
       $scope.airbnblistings.splice(index, 1);
       $scope.existingListing = {};
       $scope.editListing = false;
-      /* airbnbFactory.deleteListingId(listing.rowid).success(function () {
+      airbnbFactory.deleteListingId(listing.rowid).success(function () {
           var index = $scope.airbnblistings.indexOf(listing);
           $scope.airbnblistings.splice(index, 1);
           $scope.listing = {};
           $scope.editListing = false;
       }).error(function (error) {
           console.log(error);
-      });  */  
+      });  
 
     }
 

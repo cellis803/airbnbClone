@@ -51,6 +51,20 @@ module.exports = {
                             "FOREIGN KEY (email) REFERENCES user(email), " +
                             "FOREIGN KEY (listingId) REFERENCES listing(rowid) " +
                             ") WITHOUT ROWID ");
+
+                    console.log("CREATE TABLE IF NOT EXISTS review ");
+                    db.run("CREATE TABLE IF NOT EXISTS review (" + 
+                            "reviewId INTEGER NOT NULL, " +
+                            "email TEXT NOT NULL, " +
+                            "listingId TEXT NOT NULL, " +
+                            "arrivalDate TEXT, " +
+                            "reviewTitle TEXT NOT NULL, " +
+                            "rating INTEGER NOT NULL, " +
+                            "review TEXT, " +
+                            "PRIMARY KEY (reviewId), " + 
+                            "FOREIGN KEY (email) REFERENCES user(email), " +
+                            "FOREIGN KEY (listingId) REFERENCES listing(rowid) " +
+                            ") WITHOUT ROWID ");
                     resolve();
                 });
             }).then(() => console.log("tables have been created"));
@@ -65,7 +79,8 @@ module.exports = {
                     db.run("DELETE FROM reservation");
                     db.run("DELETE FROM listing");
                     db.run("DELETE FROM user");
-                                      
+                    db.run("DELETE FROM review");
+                      
 
                     console.log("loading test data...");
                     db.run("INSERT INTO user VALUES ('carolynjm4@verizon.net','Carolyn')");
@@ -85,7 +100,11 @@ module.exports = {
                     db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (4,'akashPandya@gmail.com',4,'1474476888675','')");
-
+                    
+                    db.run("INSERT INTO review VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
+                    db.run("INSERT INTO review VALUES (2,'cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    db.run("INSERT INTO review VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
+                    db.run("INSERT INTO review VALUES (4,'akashPandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
                     resolve();
                 });
             });
@@ -131,7 +150,7 @@ module.exports = {
                         })
                     })
                 }
-            )
+            );
         },
 
         createNewListing: function(listingObj) {
@@ -164,12 +183,113 @@ module.exports = {
                                     reject(error);
                                 } else {
                                     stmt.finalize();
+                                    resolve(this.lastID);
+                                }
+                            });
+                    });
+                });
+        },
+
+        deleteListing: function(listingId) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+                        var stmt = db.prepare("DELETE from listing where listing.rowid = ?");
+                        stmt.run(listingId, function(error){
+                            if(error) {
+                                reject(error);
+                            } else {
+                                stmt.finalize();
+                                resolve(this.changes);
+                            }
+                        });
+                    });
+                }
+            );
+        },
+
+        updateListing: function(listingObj) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+
+                        var stmt = db.prepare("UPDATE listing SET " +
+                                                "email=?, " +
+                                                "title=?, " +
+                                                "description=?, " +
+                                                "type=?, " +
+                                                "bedrooms=?, " +
+                                                "bathrooms=?, " +
+                                                "pool=?, " +
+                                                "address1=?, " +
+                                                "address2=?, " +
+                                                "city=?, " +
+                                                "state=?, " +
+                                                "zip=?, " +
+                                                "country=?, " +
+                                                "phone=?, " +
+                                                "price=?, " +
+                                                "duration=?, " +
+                                                "image=?, " +
+                                                "petsAllowed=?, " +
+                                                "area=? " +
+                                                "WHERE rowid = " + listingObj.rowid);
+                        stmt.run(listingObj.email,
+                                 listingObj.title, 
+                                 listingObj.description, 
+                                 listingObj.type,
+                                 listingObj.bedrooms,
+                                 listingObj.bathrooms,
+                                 listingObj.pool,
+                                 listingObj.address1,
+                                 listingObj.address2,
+                                 listingObj.city,
+                                 listingObj.state,
+                                 listingObj.zip,
+                                 listingObj.country,
+                                 listingObj.phone,
+                                 listingObj.price,
+                                 listingObj.duration,
+                                 listingObj.image,
+                                 listingObj.petsAllowed,
+                                 listingObj.area,
+
+                            function(error){
+                                if(error) {
+                                    reject(error);
+                                    console.log(error);
+                                } else {
+                                    stmt.finalize();
+                                    resolve(this.changes);
+                                }
+                            });
+                    });
+                });
+        },        
+
+        createNewReview: function(reviewObj) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+                        var stmt = db.prepare("INSERT into review values (?, ?, ?, ?, ?, ?, ?)");
+                        stmt.run(reviewObj.email,
+                                 reviewObj.listingId, 
+                                 reviewObj.arrivalDate, 
+                                 reviewObj.reviewTitle,
+                                 reviewObj.rating,
+                                 reviewObj.review,
+        
+
+                            function(error){
+                                if(error) {
+                                    reject(error);
+                                } else {
+                                    stmt.finalize();
                                     console.log("Inserted rowid=" + this.lastID);
                                     resolve(this.lastID);
                                 }
                             });
-                    })
-                }
-            )
+                    });
+                });
         }
 }

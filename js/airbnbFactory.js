@@ -24,17 +24,16 @@ app.factory('airbnbFactory', function($http) {
       },
 
       editListingData: function(editlistingObj) {
-        return $http.get('/editlisting/' + editlistingObj);
+        return $http.put('/listing', editlistingObj);
       },  
 
      deleteListingId: function(listingId) {
-        return $http.get('/deletelisting/' + listingId);
+        return $http.delete('/listing/' + listingId);
       },  
 
       makeReservation: function(reserveSelectedListing, reservationInfo) {
         return $http.post('/makeReservation', reserveSelectedListing, reservationInfo);
       }
-
 
 
    };
