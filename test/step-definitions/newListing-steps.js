@@ -46,7 +46,16 @@
                 done(); 
                                                                                                                                                                                 
             });  
-       });                  
+       });    
 
+      this.When(/^I upload "([^"]*)" as my image$/, function (absoluteFilePath, done) {    
+            driver.wait(until.elementsLocated(by.xpath("//input[@type='file']")), 30000);                                                                                                         
+            driver.findElements(by.xpath("//input[@type='file']")).then(function (elements) {
+                expect(elements.length).to.not.equal(0);
+                elements[0].sendKeys(absoluteFilePath).then(function() {
+                    done();
+                });                                                                                                                                                         
+            });                     
+      });
 };
  
