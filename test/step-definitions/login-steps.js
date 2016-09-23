@@ -19,7 +19,6 @@ module.exports = function () {
  
       this.Then(/^I should see some listings$/, function (done) {                                                                                                                                            
             driver.wait(until.elementsLocated(by.css('.airbnblisting')), 30000);
-    
             driver.findElements(by.css('.airbnblisting')).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
                 done(); 
@@ -27,7 +26,8 @@ module.exports = function () {
             });  
       });     
 
-       this.Then(/^I should view the login page$/, function (done) {                                                                                                                    
+       this.Then(/^I should view the login page$/, function (done) {   
+            driver.wait(until.elementsLocated(by.xpath("/html/body/div/form/h2[./text()='Take Me Away:']")), 30000);                                                                                                                 
             driver.findElements(by.xpath("/html/body/div/form/h2[./text()='Take Me Away:']")).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
                 done(); 
