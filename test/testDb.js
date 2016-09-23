@@ -105,7 +105,7 @@ describe('airbnb Clone DB tests', function () {
 
         it('updateListing function should return changes', function(done) {
             
-            var listingObj = { rowid: '1',
+            var listingObj = { rowid: 2,
                     address1: 'test',                                                                                                                                                                                             
                     city: 'Baltimore',                                                                                                                                                                                            
                     state: 'MD',                                                                                                                                                                                                  
@@ -127,11 +127,9 @@ describe('airbnb Clone DB tests', function () {
                     name: 'cellis803@gmail.com'
             };       
 
-            console.log(listingObj);
             db.updateListing(listingObj).then(
                
                 (result) => {
-                    console.log(result);
                     assert.equal(result, 1);
                     done();
                 }
