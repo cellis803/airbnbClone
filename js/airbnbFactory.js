@@ -18,7 +18,17 @@ app.factory('airbnbFactory', function($http) {
 
       getListingById: function(listingId) {
         return $http.get('/listings/' + listingId);
-      }
+      },
+
+      editListingData: function(editlistingObj) {
+        return $http.get('/editlisting/' + editlistingObj);
+      },  
+
+     deleteListingId: function(listingId) {
+        return $http.get('/deletelisting/' + listingId);
+      }  
+
+
    };
 });
 

@@ -72,10 +72,14 @@ module.exports = {
                     db.run("INSERT INTO user VALUES ('cellis803@gmail.com','Chris')");
                     db.run("INSERT INTO user VALUES ('akashPandya@gmail.com','Akash')");
                     
-                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Remote Lighthouse','Remote lighthouse','House',2,1,0,'1 Lighthouse Way','','Bath','ME','04530','USA','8881234567','500','Weekly','north-sea-1674007__340.jpg',0,1000)");
-                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'506 Captain Hook Drive','','Myrtle Beach','SC','29572','USA','8882214567','750','Bi-Weekly','img2.png',1,2000)");
-                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Dream View','View of Lake Superior','Condo',1,1,0,'500 Lakeview','','Wayupthere','WI','09998','USA','8882234567','250','Weekly','img3.png',1,1500)");
-                    db.run("INSERT INTO listing VALUES ('akashPandya@gmail.com','Small Room for rent','Cricket Hangout','Apartment',1,1,1,'222 Bowler Lane','','London','','90909','GBR','0108882234555','100','Weekly','img4.jpg',0,0)");
+                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Remote Lighthouse','Remote lighthouse','House',2,1,0,'122 Front Street','','Bath','ME','04530','USA','8881234567','500','Weekly','north-sea-1674007__340.jpg',0,1000)");
+                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','8882214567','750','Bi-Weekly','img2.png',1,2000)");
+                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Dream View','View of Lake Superior','Condo',1,1,0,'82340 state highway 13','','Bayfield','WI','54814','USA','8882234567','250','Weekly','superior.jpg',1,1500)");
+                    db.run("INSERT INTO listing VALUES ('akashPandya@gmail.com','Small Room for rent','Cricket Hangout','Apartment',1,1,1,'1 Cricket Field Cottages Wilton Road','','Salisbury ','','SP2 9NS','GBR','0108882234555','100','Weekly','cottagewbridge.jpg',0,200)");
+                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Victorian','Quaint Victorian Home','Apartment',1,1,0,'717 Washington Street','','Cape May','NJ','08204','USA','8881112223333','375','Weekly','purplevictorian.jpg',1,750)");
+                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Tiny House','Portable Tiny Home','Home',1,1,0,'1316 Madison Ave','','Front Royal','VA','22630','USA','8881114443333','200','Monthly','purpletinyhouse.jpg',1,350)");
+                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Ship Tree House','Anchors away in a treehouse','House',1,1,0,'160 Douglas Park Rd','','Crescent City','CA','95531','USA','8882214444','250','Weekly','shiptreehouse.jpg',1,450)");
+                    db.run("INSERT INTO listing VALUES ('akashPandya@gmail.com','Tree House','Remote Tree House with swinging bridge','House',1,1,1,'13675 Philmont Ave','','Philadelphia','PA','19116','USA','8881117779999','200','Bi-Weekly','swingingbridgetreehouse.jpg',0,400)");
 
                     db.run("INSERT INTO reservation VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
