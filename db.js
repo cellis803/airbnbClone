@@ -150,7 +150,7 @@ module.exports = {
                         })
                     })
                 }
-            )
+            );
         },
 
         createNewListing: function(listingObj) {
@@ -187,8 +187,25 @@ module.exports = {
                                     resolve(this.lastID);
                                 }
                             });
+                    });
+                });
+        },
+
+        deleteListing: function(listingId) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+                        var stmt = db.prepare("DELETE from listing where listing.listingId = ?");
+                        stmt.run(listingId, function(error){
+                            if(error) {
+                                reject(error);
+                            } else {
+                                stmt.finalize();
+                                resolve();
+                            }
+                        })
                     })
                 }
-            )
+            );
         }
 }
