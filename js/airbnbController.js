@@ -3,8 +3,8 @@ var app = angular.module('airbnbApp');
 app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
   $scope.airbnblistings;
-
   $scope.useremail;
+  $scope.reserveSelectedListing = airbnbFactory.reserveSelectedListing;
 
   $scope.newListing = {};
 
@@ -76,10 +76,21 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
     }
 
-
-   $scope.reserve = function (listing) {
-      console.log('reserve:' + JSON.stringify(listing));     
+   $scope.reserve = function (listing) {    
+      airbnbFactory.reserveSelectedListing = listing;
+      console.log('$scope.reserveSelectedListing:', airbnbFactory.reserveSelectedListing);   
       window.location = "/#/reserve";
+   }   
+
+   $scope.makeReservation = function (reserveSelectedListing, reservationInfo) { 
+      console.log('reserveSelectedListing:' + JSON.stringify(reserveSelectedListing));  
+      console.log('reservationInfo:' + JSON.stringify(reservationInfo));   
+      window.location = "/#/reservationConfirm";
+     /* airbnbFactory.makeReservation(reserveSelectedListing, reservationInfo).success(function () {
+        window.location = "/#/reservationConfirm";
+      }).error(function (error) {
+          console.log(error);
+      });  */   
    }   
 
 });

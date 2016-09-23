@@ -4,6 +4,9 @@ var app = angular.module('airbnbApp');
 app.factory('airbnbFactory', function($http) {
 
    return {
+      reserveSelectedListing: [],
+      airbnblistings: [],     
+
       createNewUser: function(userObj) {
         return $http.post('/user', userObj);
       },
@@ -26,7 +29,12 @@ app.factory('airbnbFactory', function($http) {
 
      deleteListingId: function(listingId) {
         return $http.delete('/listing/' + listingId);
-      }  
+      },  
+
+      makeReservation: function(reserveSelectedListing, reservationInfo) {
+        return $http.post('/makeReservation', reserveSelectedListing, reservationInfo);
+      }
+
 
    };
 });

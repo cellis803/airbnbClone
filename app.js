@@ -13,6 +13,7 @@ app.use('/static', express.static(__dirname +'/'));
 app.use('/', express.static('html'));
 app.use('/js/', express.static('js'));
 app.use('/styles/', express.static('styles'));
+app.use('/images/', express.static('images'));
 
 app.post('/login', function(request, response) {
   
