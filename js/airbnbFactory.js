@@ -25,7 +25,7 @@ app.factory('airbnbFactory', function($http) {
       },  
 
      deleteListingId: function(listingId) {
-        return $http.get('/deletelisting/' + listingId);
+        return $http.delete('/listing/' + listingId);
       }  
 
 

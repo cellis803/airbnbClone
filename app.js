@@ -55,6 +55,20 @@ app.post('/listing', function (request, response) {
         });
 });
 
+app.delete('/listing/:listingId', function(request, response) {
+    console.log("delete listing");
+
+    airbnbDB.deleteListing(request.params.listingId).then(
+        (changes) => {
+            response.json({"deleted rows":changes});
+            response.send();
+        }).catch(err => {
+            console.log(err);
+            response.status(500);
+            response.send(err);
+        });    
+});
+
 app.get('/listings/:listingId', function (request, response) {
     console.log("get specific listing");
     var listingId = request.params.listingId;
