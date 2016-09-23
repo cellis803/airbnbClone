@@ -1,6 +1,9 @@
 // ./shared-objects/server.js 
 var airbnbApp = require('../../app.js');
 
+var currentlyEditing = "";
+
 module.exports = {
-    airbnbApp: airbnbApp
+    airbnbApp: airbnbApp,
+    currentlyEditing: currentlyEditing
 }
