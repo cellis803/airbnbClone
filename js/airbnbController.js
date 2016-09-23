@@ -48,9 +48,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     }
 
     $scope.listingEdit = function(listing) {
-       console.log('listingEdit:' + JSON.stringify(listing));
-       $scope.existingListing = {};
-       $scope.editListing = false;
+      console.log('listingEdit:' + JSON.stringify(listing));     
       airbnbFactory.editListingData(listing).success(function () {
          $scope.existingListing = {};
          $scope.editListing = false;
@@ -60,11 +58,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     }
 
     $scope.deleteListing = function(listing) {
-      console.log('deleteListing:' + JSON.stringify(listing));
-      var index = $scope.airbnblistings.indexOf(listing);
-      $scope.airbnblistings.splice(index, 1);
-      $scope.existingListing = {};
-      $scope.editListing = false;
+      console.log('deleteListing:' + JSON.stringify(listing));      
       airbnbFactory.deleteListingId(listing.rowid).success(function () {
           var index = $scope.airbnblistings.indexOf(listing);
           $scope.airbnblistings.splice(index, 1);
