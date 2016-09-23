@@ -1,6 +1,4 @@
 //mocha tests for DB layer
-
-
 var db = require('../db');
 
 var chai = require('chai');
@@ -36,13 +34,13 @@ describe('airbnb Clone DB tests', function () {
     });
 
     describe('testing basic funtions', function() {
-        // it('getAllListings function should return some listings', function(done) {
-        //     db.getAllListings().then(
-        //         (listings) => {
-        //             assert.isAtLeast(listings.length, 3, 'there are at least 3 listings');
-        //             done();
-        //         });
-        // });
+        it('getAllListings function should return some listings', function(done) {
+            db.getAllListings().then(
+                (listings) => {
+                    assert.isAtLeast(listings.length, 3, 'there are at least 3 listings');
+                    done();
+                });
+        });
 
         it('createNewUser function should return new user ID', function(done) {
             
@@ -136,5 +134,4 @@ describe('airbnb Clone DB tests', function () {
             );
         });                                    
     });
-   
 });
