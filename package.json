@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "pretest": "node ./test/cleanDB.js",
     "test": "node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects "
   },
   "repository": {
