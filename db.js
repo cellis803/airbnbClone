@@ -57,10 +57,10 @@ module.exports = {
                             "reviewId INTEGER NOT NULL, " +
                             "email TEXT NOT NULL, " +
                             "listingId TEXT NOT NULL, " +
-                            "arrivalDate TEXT NOT NULL, " +
+                            "arrivalDate TEXT, " +
                             "reviewTitle TEXT NOT NULL, " +
                             "rating INTEGER NOT NULL, " +
-                            "review TEXT NOT NULL, " +
+                            "review TEXT, " +
                             "PRIMARY KEY (reviewId), " + 
                             "FOREIGN KEY (email) REFERENCES user(email), " +
                             "FOREIGN KEY (listingId) REFERENCES listing(rowid) " +
@@ -207,5 +207,31 @@ module.exports = {
                     })
                 }
             );
+        },
+
+        createNewReview: function(reviewObj) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+                        var stmt = db.prepare("INSERT into review values (?, ?, ?, ?, ?, ?, ?)");
+                        stmt.run(reviewObj.email,
+                                 reviewObj.listingId, 
+                                 reviewObj.arrivalDate, 
+                                 reviewObj.reviewTitle,
+                                 reviewObj.rating,
+                                 reviewObj.review,
+        
+
+                            function(error){
+                                if(error) {
+                                    reject(error);
+                                } else {
+                                    stmt.finalize();
+                                    console.log("Inserted rowid=" + this.lastID);
+                                    resolve(this.lastID);
+                                }
+                            });
+                    });
+                });
         }
 }
