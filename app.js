@@ -60,7 +60,6 @@ app.put('/listing', function(request, response) {
 
     airbnbDB.updateListing(request.body).then(
         (rowid) => {
-            console.log(request.body);
 
             response.json({"rowid":rowid});
             response.send();
