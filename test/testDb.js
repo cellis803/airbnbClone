@@ -101,7 +101,42 @@ describe('airbnb Clone DB tests', function () {
                     done();
                 }
             );
-        });                         
+        });     
+
+        it('updateListing function should return changes', function(done) {
+            
+            var listingObj = { rowid: '1',
+                    address1: 'test',                                                                                                                                                                                             
+                    city: 'Baltimore',                                                                                                                                                                                            
+                    state: 'MD',                                                                                                                                                                                                  
+                    zip: '21047',                                                                                                                                                                                                 
+                    country: 'USA',                                                                                                                                                                                               
+                    type: 'House',                                                                                                                                                                                                
+                    price: '500',                                                                                                                                                                                                 
+                    duration: 'Weekly',                                                                                                                                                                                           
+                    title: 'mocha updated title',                                                                                                                                                                               
+                    description: 'you will not be disappointed',                                                                                                                                                                  
+                    bedrooms: '3',                                                                                                                                                                                                
+                    bathrooms: '2',                                                                                                                                                                                               
+                    area: '1000',                                                                                                                                                                                                 
+                    pool: '1',                                                                                                                                                                                                    
+                    petsAllowed: '1',                                                                                                                                                                                             
+                    email: 'cellis803@gmail.com',                                                                                                                                                                                 
+                    phone: '4109655500',                                                                                                                                                                                          
+                    image: 'temp.png',                                                                                                                                                                                            
+                    name: 'cellis803@gmail.com'
+            };       
+
+            console.log(listingObj);
+            db.updateListing(listingObj).then(
+               
+                (result) => {
+                    console.log(result);
+                    assert.equal(result, 1);
+                    done();
+                }
+            );
+        });                                    
     });
    
 });

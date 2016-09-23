@@ -51,12 +51,12 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
        console.log('listingEdit:' + JSON.stringify(listing));
        $scope.existingListing = {};
        $scope.editListing = false;
-      /* airbnbFactory.editListingData(listing).success(function () {
+      airbnbFactory.editListingData(listing).success(function () {
          $scope.existingListing = {};
          $scope.editListing = false;
       }).error(function (error) {
           console.log(error);
-      });  */   
+      });   
     }
 
     $scope.deleteListing = function(listing) {

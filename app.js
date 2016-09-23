@@ -55,6 +55,22 @@ app.post('/listing', function (request, response) {
         });
 });
 
+app.put('/listing', function(request, response) {
+    console.log("update listing");
+
+    airbnbDB.updateListing(request.body).then(
+        (rowid) => {
+            console.log(request.body);
+
+            response.json({"rowid":rowid});
+            response.send();
+        }).catch(err => {
+            console.log(err);
+            response.status(500);
+            response.send(err);
+        });    
+});
+
 app.delete('/listing/:listingId', function(request, response) {
     console.log("delete listing");
 
