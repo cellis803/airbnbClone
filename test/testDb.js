@@ -1,3 +1,6 @@
+//mocha tests for DB layer
+
+
 var db = require('../db');
 
 var chai = require('chai');
@@ -33,24 +36,30 @@ describe('airbnb Clone DB tests', function () {
     });
 
     describe('testing basic funtions', function() {
-        it('getAllListings function should return a promise', function(done) {
+        it('getAllListings function should return some listings', function(done) {
             db.getAllListings().then(
                 (listings) => {
-                    console.log(listings);
+                    assert.isAtLeast(listings.length, 3, 'there are at least 3 listings');
                     done();
                 });
         });
 
-        it('createNewUser function should return a promise', function() {
+        it('createNewUser function should return new user ID', function(done) {
             
             var UserObj = function(email, name) {
                 this.email = email;
                 this.name = name;
             };
 
-            var user = new UserObj(null, "Chris Ellis");
-            
-            db.createNewUser(user).should.be.fulfilled;
+            var user = new UserObj(Math.random().toString(36).substring(7), "Chris Ellis");
+           
+            db.createNewUser(user).then(
+                (result) => {
+                    var json = JSON.stringify(eval("(" + result + ")"));
+                    expect(json.rowid).should.exist;
+                    done();
+                }
+            );
 
         });   
 
