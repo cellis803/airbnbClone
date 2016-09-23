@@ -45,3 +45,4 @@ jspm_packages
 test/reports/cucumber-report.html
 test/reports/cucumber-report.json
 test/reports/screenshot
+test/reports/*.xml
