@@ -1,12 +1,10 @@
 //mocha tests for DB layer
-
-
 var db = require('../db');
 
 var chai = require('chai');
 var expect = require("chai").expect;
-var chaiAsPromised = require("chai-as-promised");
-chai.use(chaiAsPromised); 
+//var chaiAsPromised = require("chai-as-promised");
+//chai.use(chaiAsPromised); 
 chai.should(); 
 
 var assert = chai.assert;
@@ -41,6 +39,10 @@ describe('airbnb Clone DB tests', function () {
                 (listings) => {
                     assert.isAtLeast(listings.length, 3, 'there are at least 3 listings');
                     done();
+                },
+                (fail) => {
+                    console.log(fail);
+                    done();
                 });
         });
 
@@ -63,9 +65,77 @@ describe('airbnb Clone DB tests', function () {
 
         });   
 
-        it('createNewListing function should return a promise', function() {
-            db.createNewListing().should.be.fulfilled;
-        });                  
+        it('createNewListing function should return a promise', function(done) {
+
+            var listingObj = { address1: 'test',                                                                                                                                                                                             
+                    city: 'Baltimore',                                                                                                                                                                                            
+                    state: 'MD',                                                                                                                                                                                                  
+                    zip: '21047',                                                                                                                                                                                                 
+                    country: 'USA',                                                                                                                                                                                               
+                    type: 'House',                                                                                                                                                                                                
+                    price: '500',                                                                                                                                                                                                 
+                    duration: 'Weekly',                                                                                                                                                                                           
+                    title: 'Cucumber Test Listing',                                                                                                                                                                               
+                    description: 'you will not be disappointed',                                                                                                                                                                  
+                    bedrooms: '3',                                                                                                                                                                                                
+                    bathrooms: '2',                                                                                                                                                                                               
+                    area: '1000',                                                                                                                                                                                                 
+                    pool: '1',                                                                                                                                                                                                    
+                    petsAllowed: '1',                                                                                                                                                                                             
+                    email: 'cellis803@gmail.com',                                                                                                                                                                                 
+                    phone: '4109655500',                                                                                                                                                                                          
+                    image: 'temp.png',                                                                                                                                                                                            
+                    name: 'cellis803@gmail.com'
+                }    
+
+            db.createNewListing(listingObj).then(
+                (result) => {
+                    assert.isNotNull(result, 'new row id was returned');
+                    done();
+                }
+            );
+        });
+
+        it('deleteListing function should return changes', function(done) {
+            db.deleteListing(1).then(
+                (result) => {
+                    assert.equal(result, 1);
+                    done();
+                }
+            );
+        });     
+
+        it('updateListing function should return changes', function(done) {
+            
+            var listingObj = { rowid: 2,
+                    address1: 'test',                                                                                                                                                                                             
+                    city: 'Baltimore',                                                                                                                                                                                            
+                    state: 'MD',                                                                                                                                                                                                  
+                    zip: '21047',                                                                                                                                                                                                 
+                    country: 'USA',                                                                                                                                                                                               
+                    type: 'House',                                                                                                                                                                                                
+                    price: '500',                                                                                                                                                                                                 
+                    duration: 'Weekly',                                                                                                                                                                                           
+                    title: 'mocha updated title',                                                                                                                                                                               
+                    description: 'you will not be disappointed',                                                                                                                                                                  
+                    bedrooms: '3',                                                                                                                                                                                                
+                    bathrooms: '2',                                                                                                                                                                                               
+                    area: '1000',                                                                                                                                                                                                 
+                    pool: '1',                                                                                                                                                                                                    
+                    petsAllowed: '1',                                                                                                                                                                                             
+                    email: 'cellis803@gmail.com',                                                                                                                                                                                 
+                    phone: '4109655500',                                                                                                                                                                                          
+                    image: 'temp.png',                                                                                                                                                                                            
+                    name: 'cellis803@gmail.com'
+            };       
+
+            db.updateListing(listingObj).then(
+               
+                (result) => {
+                    assert.equal(result, 1);
+                    done();
+                }
+            );
+        });                                    
     });
-   
 });

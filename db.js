@@ -190,7 +190,6 @@ module.exports = {
                                     reject(error);
                                 } else {
                                     stmt.finalize();
-                                    console.log("Inserted rowid=" + this.lastID);
                                     resolve(this.lastID);
                                 }
                             });
@@ -202,19 +201,78 @@ module.exports = {
             return new Promise(
                 (resolve, reject) => {
                     db.serialize( function() {
-                        var stmt = db.prepare("DELETE from listing where listing.listingId = ?");
+                        var stmt = db.prepare("DELETE from listing where listing.rowid = ?");
                         stmt.run(listingId, function(error){
                             if(error) {
                                 reject(error);
                             } else {
                                 stmt.finalize();
-                                resolve();
+                                resolve(this.changes);
                             }
-                        })
-                    })
+                        });
+                    });
                 }
             );
         },
+
+        updateListing: function(listingObj) {
+            return new Promise(
+                (resolve, reject) => {
+                    db.serialize( function() {
+
+                        var stmt = db.prepare("UPDATE listing SET " +
+                                                "email=?, " +
+                                                "title=?, " +
+                                                "description=?, " +
+                                                "type=?, " +
+                                                "bedrooms=?, " +
+                                                "bathrooms=?, " +
+                                                "pool=?, " +
+                                                "address1=?, " +
+                                                "address2=?, " +
+                                                "city=?, " +
+                                                "state=?, " +
+                                                "zip=?, " +
+                                                "country=?, " +
+                                                "phone=?, " +
+                                                "price=?, " +
+                                                "duration=?, " +
+                                                "image=?, " +
+                                                "petsAllowed=?, " +
+                                                "area=? " +
+                                                "WHERE rowid = " + listingObj.rowid);
+                        stmt.run(listingObj.email,
+                                 listingObj.title, 
+                                 listingObj.description, 
+                                 listingObj.type,
+                                 listingObj.bedrooms,
+                                 listingObj.bathrooms,
+                                 listingObj.pool,
+                                 listingObj.address1,
+                                 listingObj.address2,
+                                 listingObj.city,
+                                 listingObj.state,
+                                 listingObj.zip,
+                                 listingObj.country,
+                                 listingObj.phone,
+                                 listingObj.price,
+                                 listingObj.duration,
+                                 listingObj.image,
+                                 listingObj.petsAllowed,
+                                 listingObj.area,
+
+                            function(error){
+                                if(error) {
+                                    reject(error);
+                                    console.log(error);
+                                } else {
+                                    stmt.finalize();
+                                    resolve(this.changes);
+                                }
+                            });
+                    });
+                });
+        },        
 
         createNewReview: function(reviewObj) {
             return new Promise(

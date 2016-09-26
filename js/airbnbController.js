@@ -3,8 +3,8 @@ var app = angular.module('airbnbApp');
 app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
   $scope.airbnblistings;
-
   $scope.useremail;
+  $scope.reserveSelectedListing = airbnbFactory.reserveSelectedListing;
 
   $scope.newListing = {};
 
@@ -52,37 +52,31 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     }
 
     $scope.listingEdit = function(listing) {
-       console.log('listingEdit:' + JSON.stringify(listing));
-       $scope.existingListing = {};
-       $scope.editListing = false;
-      /* airbnbFactory.editListingData(listing).success(function () {
+      console.log('listingEdit:' + JSON.stringify(listing));     
+      airbnbFactory.editListingData(listing).success(function () {
          $scope.existingListing = {};
          $scope.editListing = false;
       }).error(function (error) {
           console.log(error);
-      });  */   
+      });   
     }
 
     $scope.deleteListing = function(listing) {
-      console.log('deleteListing:' + JSON.stringify(listing));
-      var index = $scope.airbnblistings.indexOf(listing);
-      $scope.airbnblistings.splice(index, 1);
-      $scope.existingListing = {};
-      $scope.editListing = false;
-      /* airbnbFactory.deleteListingId(listing.rowid).success(function () {
+      console.log('deleteListing:' + JSON.stringify(listing));      
+      airbnbFactory.deleteListingId(listing.rowid).success(function () {
           var index = $scope.airbnblistings.indexOf(listing);
           $scope.airbnblistings.splice(index, 1);
           $scope.listing = {};
           $scope.editListing = false;
       }).error(function (error) {
           console.log(error);
-      });  */  
+      });  
 
     }
 
-
-   $scope.reserve = function (listing) {
-      console.log('reserve:' + JSON.stringify(listing));     
+   $scope.reserve = function (listing) {    
+      airbnbFactory.reserveSelectedListing = listing;
+      console.log('$scope.reserveSelectedListing:', airbnbFactory.reserveSelectedListing);   
       window.location = "/#/reserve";
    }   
 
@@ -100,4 +94,15 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
          $scope.newReview = {};         
       }
  }
+   $scope.makeReservation = function (reserveSelectedListing, reservationInfo) { 
+      console.log('reserveSelectedListing:' + JSON.stringify(reserveSelectedListing));  
+      console.log('reservationInfo:' + JSON.stringify(reservationInfo));   
+      window.location = "/#/reservationConfirm";
+     /* airbnbFactory.makeReservation(reserveSelectedListing, reservationInfo).success(function () {
+        window.location = "/#/reservationConfirm";
+      }).error(function (error) {
+          console.log(error);
+      });  */   
+   }   
+
 });
