@@ -14,6 +14,10 @@ app.config(function($routeProvider) {
         templateUrl: 'reserve.html',
         controller: 'airbnbCtrl'
     }).
+    when('/review', {
+        templateUrl: 'review.html',
+        controller: 'airbnbCtrl'
+    }).
     otherwise({
         redirectTo: '/'
     });

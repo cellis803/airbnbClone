@@ -26,9 +26,11 @@ app.factory('airbnbFactory', function($http) {
 
      deleteListingId: function(listingId) {
         return $http.get('/deletelisting/' + listingId);
-      }  
+      },  
 
-
+     createNewReview: function(reviewObj) {
+        return $http.post('/review', reviewObj);
+      }
    };
 });
 

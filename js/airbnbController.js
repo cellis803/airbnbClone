@@ -8,6 +8,10 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
 
   $scope.newListing = {};
 
+  $scope.createReview = {};
+
+  $scope.airbnbreviews;
+
   $scope.rentalAmt = {
     min: 0,
     max: 100000
@@ -37,7 +41,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
  }
 
   $scope.handleLogin = function (email) {
-    console.log('email:' + email);
+    // console.log('email:' + email);
     $scope.useremail = email;
     window.location = "/#/login";
   }
@@ -82,4 +86,18 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
       window.location = "/#/reserve";
    }   
 
+ $scope.createReview = function(newReview) {
+      if(newReview) {        
+        console.log('newReview:' + JSON.stringify(newReview));  
+        airbnbFactory.createNewReview(newReview).success(function(data) {                
+             console.log('review rowid:' + data.rowid);
+             newReview.rowid = data.rowid; 
+             $scope.airbnbreviews.push(newReview); 
+             //console.log('airbnbreviews length:' + $scope.airbnbreviews.length);                                
+         }).error(function(error) {
+              console.log(error);
+         });             
+         $scope.newReview = {};         
+      }
+ }
 });

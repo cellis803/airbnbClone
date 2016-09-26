@@ -54,17 +54,19 @@ module.exports = {
 
                     console.log("CREATE TABLE IF NOT EXISTS review ");
                     db.run("CREATE TABLE IF NOT EXISTS review (" + 
-                            "reviewId INTEGER NOT NULL, " +
+                            // "reviewId INTEGER NOT NULL, " +
                             "email TEXT NOT NULL, " +
-                            "listingId TEXT NOT NULL, " +
+                            // "listingId TEXT NOT NULL, " +
+                            "listingId TEXT, " +
                             "arrivalDate TEXT, " +
                             "reviewTitle TEXT NOT NULL, " +
                             "rating INTEGER NOT NULL, " +
                             "review TEXT, " +
-                            "PRIMARY KEY (reviewId), " + 
+                            // "PRIMARY KEY (reviewId), " + 
+                            // "PRIMARY KEY (email), " + 
                             "FOREIGN KEY (email) REFERENCES user(email), " +
                             "FOREIGN KEY (listingId) REFERENCES listing(rowid) " +
-                            ") WITHOUT ROWID ");
+                            ")   ");
                     resolve();
                 });
             }).then(() => console.log("tables have been created"));
@@ -85,26 +87,31 @@ module.exports = {
                     console.log("loading test data...");
                     db.run("INSERT INTO user VALUES ('carolynjm4@verizon.net','Carolyn')");
                     db.run("INSERT INTO user VALUES ('cellis803@gmail.com','Chris')");
-                    db.run("INSERT INTO user VALUES ('akashPandya@gmail.com','Akash')");
+                    db.run("INSERT INTO user VALUES ('akashpandya@gmail.com','Akash')");
                     
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Remote Lighthouse','Remote lighthouse','House',2,1,0,'122 Front Street','','Bath','ME','04530','USA','8881234567','500','Weekly','north-sea-1674007__340.jpg',0,1000)");
                     db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','8882214567','750','Bi-Weekly','img2.png',1,2000)");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Dream View','View of Lake Superior','Condo',1,1,0,'82340 state highway 13','','Bayfield','WI','54814','USA','8882234567','250','Weekly','superior.jpg',1,1500)");
-                    db.run("INSERT INTO listing VALUES ('akashPandya@gmail.com','Small Room for rent','Cricket Hangout','Apartment',1,1,1,'1 Cricket Field Cottages Wilton Road','','Salisbury ','','SP2 9NS','GBR','0108882234555','100','Weekly','cottagewbridge.jpg',0,200)");
+                    db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Small Room for rent','Cricket Hangout','Apartment',1,1,1,'1 Cricket Field Cottages Wilton Road','','Salisbury ','','SP2 9NS','GBR','0108882234555','100','Weekly','cottagewbridge.jpg',0,200)");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Victorian','Quaint Victorian Home','Apartment',1,1,0,'717 Washington Street','','Cape May','NJ','08204','USA','8881112223333','375','Weekly','purplevictorian.jpg',1,750)");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Tiny House','Portable Tiny Home','Home',1,1,0,'1316 Madison Ave','','Front Royal','VA','22630','USA','8881114443333','200','Monthly','purpletinyhouse.jpg',1,350)");
                     db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Ship Tree House','Anchors away in a treehouse','House',1,1,0,'160 Douglas Park Rd','','Crescent City','CA','95531','USA','8882214444','250','Weekly','shiptreehouse.jpg',1,450)");
-                    db.run("INSERT INTO listing VALUES ('akashPandya@gmail.com','Tree House','Remote Tree House with swinging bridge','House',1,1,1,'13675 Philmont Ave','','Philadelphia','PA','19116','USA','8881117779999','200','Bi-Weekly','swingingbridgetreehouse.jpg',0,400)");
+                    db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Tree House','Remote Tree House with swinging bridge','House',1,1,1,'13675 Philmont Ave','','Philadelphia','PA','19116','USA','8881117779999','200','Bi-Weekly','swingingbridgetreehouse.jpg',0,400)");
 
                     db.run("INSERT INTO reservation VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','')");
-                    db.run("INSERT INTO reservation VALUES (4,'akashPandya@gmail.com',4,'1474476888675','')");
+                    db.run("INSERT INTO reservation VALUES (4,'akashpandya@gmail.com',4,'1474476888675','')");
                     
-                    db.run("INSERT INTO review VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
-                    db.run("INSERT INTO review VALUES (2,'cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
-                    db.run("INSERT INTO review VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
-                    db.run("INSERT INTO review VALUES (4,'akashPandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
+                    // db.run("INSERT INTO review VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
+                    // db.run("INSERT INTO review VALUES (2,'cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    // db.run("INSERT INTO review VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
+                    // db.run("INSERT INTO review VALUES (4,'akashpandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
+                    
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
+                    db.run("INSERT INTO review VALUES ('cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
+                    db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
                     resolve();
                 });
             });
@@ -213,7 +220,7 @@ module.exports = {
             return new Promise(
                 (resolve, reject) => {
                     db.serialize( function() {
-                        var stmt = db.prepare("INSERT into review values (?, ?, ?, ?, ?, ?, ?)");
+                        var stmt = db.prepare("INSERT into review values (?, ?, ?, ?, ?, ?)");
                         stmt.run(reviewObj.email,
                                  reviewObj.listingId, 
                                  reviewObj.arrivalDate, 
@@ -225,6 +232,7 @@ module.exports = {
                             function(error){
                                 if(error) {
                                     reject(error);
+                                    console.log("problem in db" + reviewObj);
                                 } else {
                                     stmt.finalize();
                                     console.log("Inserted rowid=" + this.lastID);

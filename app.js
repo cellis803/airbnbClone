@@ -85,6 +85,21 @@ app.get('/listings', function (request, response) {
         });
 });
 
+app.post('/review', function (request, response) {
+    console.log("add review");
+
+    airbnbDB.createNewReview(request.body).then(
+        (rowid) => {
+            response.json({"rowid":rowid});
+            response.send();
+        }).catch(err => {
+            console.log(err);
+            console.log('in app');
+            response.status(500);
+            response.send(err);
+        });
+});
+
 var server = app.listen(8080, function () {
     console.log('Starting airbnb clone server...');
     console.log('Example app listening on port 8080...');
