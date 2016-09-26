@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "node ./test/cleanDB.js",
     "test": "mocha",
-    "test-jenkins": "set MOCHA_FILE=./test/reports/mocha.xml && mocha --colors --reporter mocha-junit-reporter",
+    "test-jenkins": "set MOCHA_FILE=./test/reports/mocha.xml && mocha --reporter mocha-junit-reporter",
     "acceptance-tests": "node ./test/cleanDB.js && node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects "
   },
   "repository": {
