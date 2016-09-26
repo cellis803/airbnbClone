@@ -182,7 +182,7 @@ describe('airbnb Clone RESTful API tests', function () {
             .expect({rowid: 1}, done);
     });     
 
-    it('GET /listings/:listingId/reviews should return all reviews for given listing', function testGetListing(done) {
+    it('GET /listings/:listingId/reviews should return all reviews for given listing', function testGetReviews(done) {
         request(server)
             .get('/listings/2/reviews')
             .expect('Content-Type', 'application/json; charset=utf-8')
