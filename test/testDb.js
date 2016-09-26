@@ -3,8 +3,6 @@ var db = require('../db');
 
 var chai = require('chai');
 var expect = require("chai").expect;
-//var chaiAsPromised = require("chai-as-promised");
-//chai.use(chaiAsPromised); 
 chai.should(); 
 
 var assert = chai.assert;
@@ -12,11 +10,7 @@ var assert = chai.assert;
 before(function() {
   db.initDB().then(
         success => {
-            // db.loadTestData().then(
-            //     () => {
-            //         console.log("added test data");
-            //     }
-            // );
+
         }).catch(err => {
                 console.log(err);
                 response.status(500);
@@ -65,7 +59,7 @@ describe('airbnb Clone DB tests', function () {
 
         });   
 
-        it('createNewListing function should return a promise', function(done) {
+        it('createNewListing function should return new rowid', function(done) {
 
             var listingObj = { address1: 'test',                                                                                                                                                                                             
                     city: 'Baltimore',                                                                                                                                                                                            
@@ -136,6 +130,26 @@ describe('airbnb Clone DB tests', function () {
                     done();
                 }
             );
-        });                                    
+        });
+
+        it('createNewReview function should return new rowid', function(done) {
+
+            var reviewObj = { email: 'cellis803@gmail.com',                                                                                                                                                                                             
+                    listingId: '1',                                                                                                                                                                                            
+                    arrivalDate: '09-2016',                                                                                                                                                                                                  
+                    reviewTitle: 'this is my test review',                                                                                                                                                                                                 
+                    rating: '5',
+                    review: 'this is my review.'
+            };  
+            
+            db.createNewReview(reviewObj).then(
+                (result) => {
+                    console.log(result);
+                    assert.isNotNull(result, 'new row id was returned');
+                    done();
+                }
+            );
+        });        
+
     });
 });
