@@ -40,6 +40,19 @@ describe('airbnb Clone DB tests', function () {
                 });
         });
 
+        it('getAllListings function should return a single listing', function(done) {
+            var listingId = '2';
+            db.getAllListings(listingId).then(
+                (listings) => {
+                    assert.equal(listings.length, 1, 'there should be 1 listing');
+                    done();
+                },
+                (fail) => {
+                    console.log(fail);
+                    done();                    
+                });
+        });        
+
         it('createNewUser function should return new user ID', function(done) {
             
             var UserObj = function(email, name) {
