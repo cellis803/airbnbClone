@@ -114,40 +114,40 @@ describe('airbnb Clone RESTful API tests', function () {
             .expect(200, done);
     });
 
-    it('responds 404 for invalid path', function testPath(done) {
+    it('responds 404 for invalid path', function test404(done) {
         request(server)
         .get('/foo/bar')
         .expect(404, done);
     });
 
-    it('POST /user should create a new user', function testSlash(done) {
+    it('POST /user should create a new user', function testCreateNewUser(done) {
         request(server)
             .post('/user')
             .send(mockDbJs.testUserObj)
             .expect({rowid: 1}, done);
     }); 
 
-    it('POST /listing should create a new listing', function testSlash(done) {
+    it('POST /listing should create a new listing', function testCreateNewListing(done) {
         request(server)
             .post('/listing')
             .send(mockDbJs.testListingObj)
             .expect({rowid: 1}, done);
     }); 
 
-    it('PUT /listing should update a listing', function testSlash(done) {
+    it('PUT /listing should update a listing', function testUpdateListing(done) {
         request(server)
             .put('/listing')
             .send(mockDbJs.testListingObj)
             .expect({rowid: 1}, done);
     }); 
 
-    it('DELETE /listing/1 should delete a listing', function testSlash(done) {
+    it('DELETE /listing/1 should delete a listing', function testDeleteListing(done) {
         request(server)
             .delete('/listing/1')
             .expect({"deleted rows": 1}, done);
     }); 
 
-    it('GET /listings/1 should return a listing', function testSlash(done) {
+    it('GET /listings/1 should return a listing', function testGetListing(done) {
         request(server)
             .get('/listings/1')
             .expect('Content-Type', 'application/json; charset=utf-8')
@@ -157,7 +157,7 @@ describe('airbnb Clone RESTful API tests', function () {
             });
     });   
 
-    it('GET /listings should return all listings', function testSlash(done) {
+    it('GET /listings should return all listings', function testGetAllListings(done) {
         request(server)
             .get('/listings')
             .expect('Content-Type', 'application/json; charset=utf-8')
@@ -167,7 +167,7 @@ describe('airbnb Clone RESTful API tests', function () {
             });
     });  
 
-    it('POST /review should create a new review', function testSlash(done) {
+    it('POST /review should create a new review', function testCreateReview(done) {
         request(server)
             .post('/review')
             .send(mockDbJs.testReviewObj)
