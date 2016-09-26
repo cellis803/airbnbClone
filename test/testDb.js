@@ -162,7 +162,20 @@ describe('airbnb Clone DB tests', function () {
                     done();
                 }
             );
-        });        
+        });  
+
+        it('getReviews function should return reviews for a given listing', function(done) {
+            var byListingId = '2';
+            db.getReviews(byListingId).then(
+                (reviews) => {
+                    assert.isAtLeast(reviews.length, 2, 'there are at least 2 reviews');
+                    done();
+                },
+                (fail) => {
+                    console.log(fail);
+                    done();
+                });
+        });              
 
     });
 });

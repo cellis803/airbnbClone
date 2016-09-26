@@ -91,6 +91,14 @@ var mockDbJs = {
                     (resolve, reject) => {
                         resolve(1);
                     });                  
+            },
+
+            getReviews: function(listingId) {
+
+                return new Promise(
+                    (resolve, reject) => {
+                        resolve(new Array(this.testReviewObj));
+                    });                 
             }            
 };  
 
@@ -172,6 +180,16 @@ describe('airbnb Clone RESTful API tests', function () {
             .post('/review')
             .send(mockDbJs.testReviewObj)
             .expect({rowid: 1}, done);
+    });     
+
+    it('GET /listings/:listingId/reviews should return all reviews for given listing', function testGetListing(done) {
+        request(server)
+            .get('/listings/2/reviews')
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, result) {
+                assert.deepEqual(result.body[0], mockDbJs.testReviewObj);
+                done();
+            });
     });               
 
 });

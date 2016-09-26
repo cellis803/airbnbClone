@@ -119,6 +119,21 @@ app.post('/review', function (request, response) {
         });
 });
 
+app.get('/listings/:listingId/reviews', function (request, response) {
+    console.log("get reviews for a listing");
+    var listingId = request.params.listingId;
+    airbnbDB.getReviews(listingId).then(
+        reviews => {
+            response.send(reviews);
+
+        }).catch(
+        err => {
+            console.log(err);
+            response.status(500);
+            response.send();
+        });
+});
+
 var server = app.listen(8080, function () {
     console.log('Starting airbnb clone server...');
     console.log('Example app listening on port 8080...');
