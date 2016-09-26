@@ -39,6 +39,10 @@ describe('airbnb Clone DB tests', function () {
                 (listings) => {
                     assert.isAtLeast(listings.length, 3, 'there are at least 3 listings');
                     done();
+                },
+                (fail) => {
+                    console.log(fail);
+                    done();
                 });
         });
 
