@@ -15,18 +15,6 @@ app.use('/js/', express.static('js'));
 app.use('/styles/', express.static('styles'));
 app.use('/images/', express.static('images'));
 
-// app.post('/login', function(request, response) {
-  
-//     airbnbDB.getUserId(request.body.username).then(
-//         user => {
-//             response.send(user);
-//         }).catch(err => {
-//                 console.log(err);
-//                 response.status(500);
-//                 response.send(err);                
-//         });
-// });
-
 app.post('/user', function (request, response) {
     console.log("add a user");
     airbnbDB.createNewUser(request.body).then(
