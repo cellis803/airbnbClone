@@ -15,17 +15,17 @@ app.use('/js/', express.static('js'));
 app.use('/styles/', express.static('styles'));
 app.use('/images/', express.static('images'));
 
-app.post('/login', function(request, response) {
+// app.post('/login', function(request, response) {
   
-    airbnbDB.getUserId(request.body.username).then(
-        user => {
-            response.send(user);
-        }).catch(err => {
-                console.log(err);
-                response.status(500);
-                response.send(err);                
-        });
-});
+//     airbnbDB.getUserId(request.body.username).then(
+//         user => {
+//             response.send(user);
+//         }).catch(err => {
+//                 console.log(err);
+//                 response.status(500);
+//                 response.send(err);                
+//         });
+// });
 
 app.post('/user', function (request, response) {
     console.log("add a user");
@@ -153,4 +153,4 @@ var server = app.listen(8080, function () {
         });
 });
 
-module.exports = app;
+module.exports = server;
