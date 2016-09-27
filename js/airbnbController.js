@@ -111,7 +111,21 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     
   }
 
+
+
   $scope.cancel = function () {
     window.location = "/#/login";
   }
+
+});
+
+app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactory) {
+       
+    airbnbFactory.getListingById($routeParams.listingId).then(function (result) {
+            $scope.listingDetails = result;
+            console.log(result);
+    }, function (error) {
+      console.log(error);
+    });
+
 });

@@ -10,7 +10,15 @@ app.config(function($routeProvider) {
         templateUrl: 'listing.html',
         controller: 'airbnbCtrl'
     }).
-     when('/reserve', {
+    when('/mapView', {
+        templateUrl: 'listing-details.html',
+        controller: 'airbnbCtrl'
+    }).
+    when('/listing/:listingId', {
+         templateUrl: 'viewlisting.html',
+        controller: 'ListingDetailsCtrl'       
+    }).
+    when('/reserve', {
         templateUrl: 'reserve.html',
         controller: 'airbnbCtrl'
     }).
