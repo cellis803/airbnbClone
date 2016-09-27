@@ -111,8 +111,6 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     
   }
 
-
-
   $scope.cancel = function () {
     window.location = "/#/login";
   }
