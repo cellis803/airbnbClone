@@ -1,3 +1,13 @@
+#container {
+
+    background: rgba(54, 25, 25, .35);
+    width: 70%;
+    min-width: 1200px;
+    padding: 5%;
+    padding-top:2%;
+    padding-bottom:0px;
+
+}
 .nowrap {
     white-space: normal;
 }
