@@ -5,7 +5,8 @@ app.factory('airbnbFactory', function($http) {
 
    return {
       reserveSelectedListing: [],
-      airbnblistings: [],     
+      airbnblistings: [],  
+      reviewListingId: null,   
 
       createNewUser: function(userObj) {
         return $http.post('/user', userObj);

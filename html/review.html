@@ -1,65 +1,46 @@
-<div class="col-sm-12 review-form">
-    <div class="row review-form-row" ng-if="!addReview">
-        <!--<div class="row review-form-row">-->
-        <!--<div class="review-form" ng-if="addReview">-->
-        <h3>Add a Review</h3>
-        <div class="row review-form-row">
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon">Email</span>
-                    <input type="text" placeholder="Email" class="form-control" ng-model="newReview.email" autofocus required />
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon">Listing Title</span>
-                    <input type="text" placeholder="will be replaced w Listing Title" class="form-control" ng-model="newReview.listingId" />
-                    <!--<span class="label label-primary">Listing: {{airbnblisting.title}}</span>-->
-                </div>
-            </div>
-        </div>
+<div class="col-sm-12 review-form" ng-if="createReview">
 
-        <div class="row listing-form-row">
-            <div class="col-sm-4">
-                <div class="input-group">
-                    <span class="input-group-addon">Arrival Date</span>
-                    <input type="text" placeholder="Month and Year of Stay" class="form-control" ng-model="newReview.arrivalDate" />
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="input-group">
-                    <span class="input-group-addon">Rating</span>
-                    <input type="text" placeholder="Enter 1-5 with 5 as highest" class="form-control" ng-model="newReview.rating" required />
-                </div>
-            </div>
-        </div>
+    <h3>Add a Review</h3>
 
-        <div class="row listing-form-row">
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon">Review Summary</span>
-                    <input type="text" placeholder="Brief review comment" class="form-control" ng-model="newReview.reviewTitle" required />
-                </div>
+    <div class="row review-form-row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <span class="input-group-addon">Email</span>
+                <input type="text" placeholder="Email" class="form-control" ng-model="newReview.email" autofocus required/>
             </div>
         </div>
-
-        <div class="row listing-form-row">
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon">Review</span>
-                    <input type="text" placeholder="Detailed review" class="form-control" ng-model="newReview.review" />
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row listing-form-row">
-            <div class="input-group ">
-                <!--<button class="btn btn-lg btn-center btn-primary " type="submit">Add Review</button>-->
-                <button class="btn btn-primary btn-success" ng-click="createReview(newReview);" ng-show="createReview">Add</button>
-            </div>
-        </div>
-
     </div>
-</div>
-</div>
+    <br>
+    <div class="row review-form-row">
+        <div class="col-sm-2">
+            <div class="input-group">
+                <span class="input-group-addon">Rating</span>
+                <input type="text" placeholder="1 - 5 (high)" class="form-control" ng-model="newReview.rating" required/>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row review-form-row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <span class="input-group-addon">Review Summary</span>
+                <input type="text" placeholder="Brief review comment" class="form-control" ng-model="newReview.reviewTitle" required/>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row review-form-row">
+        <div class="col-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon">Review</span>
+                <input type="text" placeholder="Detailed review" class="form-control" ng-model="newReview.review" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row review-form-row">
+        <div class="input-group">
+            <button class="btn btn-primary btn-success" ng-click="createReview(reviewSelectedListing, newReview);" ng-show="createReview">Submit Review</button>
+        </div>
+    </div>
 </div>
