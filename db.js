@@ -111,7 +111,6 @@ module.exports = {
 
     getAllListings: function (listingId) {
 
-        console.log(listingId);
         var listingSQL = "SELECT listing.*, listing.rowid, u.name from listing " +
             "INNER JOIN user u on listing.email = u.email ";
         if (listingId) {

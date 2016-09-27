@@ -18,6 +18,14 @@ app.config(function($routeProvider) {
          templateUrl: 'viewlisting.html',
         controller: 'ListingDetailsCtrl'       
     }).
+    when('/listing/:listingId/review', {
+         templateUrl: 'review.html',
+        controller: 'airbnbCtrl'       
+    }).
+    when('/listing/:listingId/reserve', {
+         templateUrl: 'reserve.html',
+        controller: 'airbnbCtrl'       
+    }).        
     when('/reserve', {
         templateUrl: 'reserve.html',
         controller: 'airbnbCtrl'
