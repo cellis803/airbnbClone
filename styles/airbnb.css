@@ -16,4 +16,22 @@
   margin-top: 10px;
 }
 
- 
+.col-sm-4 {
+    width: 33.33333333%;
+}
+
+.airbnblisting {
+  height: 750px;
+  overflow: hidden;
+}
+
+.listingDescription {
+    height: 100px !important;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+}
+
+.listingImage {
+  height: 200px !important;
+}
