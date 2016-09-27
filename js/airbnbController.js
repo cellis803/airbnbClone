@@ -125,12 +125,21 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
 });
 
 app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactory) {
-       
+
+    $scope.listingReviews = {};
+
     airbnbFactory.getListingById($routeParams.listingId).then(function (result) {
             $scope.listingDetails = result;
-            console.log(result);
+
     }, function (error) {
       console.log(error);
+    });
+
+    airbnbFactory.getReviewsByListing($routeParams.listingId).then(function(result) {
+            $scope.listingReviews = result.data;
+
+    }, function(error) {
+        console.log(error);
     });
 
 

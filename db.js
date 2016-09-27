@@ -308,6 +308,7 @@ module.exports = {
                             if (err) {
                                 reject("something went wrong");
                             } else {
+                                console.log(rows.length);
                                 resolve(rows);
                             }
 
