@@ -1,8 +1,6 @@
 <div class="col-sm-12 review-form" ng-if="createReview">
-
     <h3>Add a Review</h3>
-
-    <div class="row review-form-row">
+    <div class="row listing-form-row">
         <div class="col-sm-6">
             <div class="input-group">
                 <span class="input-group-addon">Email</span>
@@ -11,8 +9,8 @@
         </div>
     </div>
     <br>
-    <div class="row review-form-row">
-        <div class="col-sm-2">
+    <div class="row listing-form-row">
+        <div class="col-sm-3">
             <div class="input-group">
                 <span class="input-group-addon">Rating</span>
                 <input type="text" placeholder="1 - 5 (high)" class="form-control" ng-model="newReview.rating" required/>
@@ -20,7 +18,7 @@
         </div>
     </div>
     <br>
-    <div class="row review-form-row">
+    <div class="row listing-form-row">
         <div class="col-sm-6">
             <div class="input-group">
                 <span class="input-group-addon">Review Summary</span>
@@ -29,7 +27,7 @@
         </div>
     </div>
     <br>
-    <div class="row review-form-row">
+    <div class="row listing-form-row">
         <div class="col-sm-10">
             <div class="input-group">
                 <span class="input-group-addon">Review</span>
@@ -38,11 +36,12 @@
         </div>
     </div>
     <br>
-    <div class="row review-form-row">
-        <div class="input-group">
-            <button class="btn btn-primary btn-success" ng-click="createReview(reviewSelectedListing, newReview);" ng-show="createReview">Submit Review</button>
-            <button class="btn btn-primary btn-danger"  ng-click="cancel();">Cancel</button>
-           
+    <div class="row listing-form-row">
+        <div class="col-sm-4">
+            <div class="input-group">
+                <button class="btn btn-primary btn-success" ng-click="createReview(reviewSelectedListing, newReview);" ng-show="createReview">Submit Review</button>
+                <button class="btn btn-primary btn-danger" ng-click="cancel();">Cancel</button>
+            </div>
         </div>
     </div>
 </div>
