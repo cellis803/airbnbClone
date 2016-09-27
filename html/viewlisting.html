@@ -1,5 +1,5 @@
                
-       <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in listingDetails | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
+       <div class=" airbnblisting" ng-repeat="airbnblisting in listingDetails | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
             <div class="thumbnail">
               <h3>{{airbnblisting.title}}</h3>
               <img ng-src="static/images/{{airbnblisting.image}}" alt="">
