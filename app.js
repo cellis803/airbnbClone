@@ -15,18 +15,6 @@ app.use('/js/', express.static('js'));
 app.use('/styles/', express.static('styles'));
 app.use('/images/', express.static('images'));
 
-app.post('/login', function(request, response) {
-  
-    airbnbDB.getUserId(request.body.username).then(
-        user => {
-            response.send(user);
-        }).catch(err => {
-                console.log(err);
-                response.status(500);
-                response.send(err);                
-        });
-});
-
 app.post('/user', function (request, response) {
     console.log("add a user");
     airbnbDB.createNewUser(request.body).then(
@@ -131,6 +119,21 @@ app.post('/review', function (request, response) {
         });
 });
 
+app.get('/listings/:listingId/reviews', function (request, response) {
+    console.log("get reviews for a listing");
+    var listingId = request.params.listingId;
+    airbnbDB.getReviews(listingId).then(
+        reviews => {
+            response.send(reviews);
+
+        }).catch(
+        err => {
+            console.log(err);
+            response.status(500);
+            response.send();
+        });
+});
+
 var server = app.listen(8080, function () {
     console.log('Starting airbnb clone server...');
     console.log('Example app listening on port 8080...');
@@ -153,4 +156,4 @@ var server = app.listen(8080, function () {
         });
 });
 
-module.exports = app;
+module.exports = server;

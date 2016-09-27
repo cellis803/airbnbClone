@@ -396,7 +396,7 @@
        <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
             <div class="thumbnail">
               <h3>{{airbnblisting.title}}</h3>
-              <img ng-src="static/images/{{airbnblisting.image}}" alt="">
+              <img class="listingImage" ng-src="static/images/{{airbnblisting.image}}" alt="">
 
                <div class="caption">             
                     <h3><i class="glyphicon glyphicon-tag"></i>{{airbnblisting.price | currency}}/{{airbnblisting.duration}}&nbsp;&nbsp;<span class="label label-info nowrap">{{airbnblisting.type}}</span>
@@ -406,7 +406,7 @@
                      {{airbnblisting.country}}              
                     </h4>    
                     <h4>
-                      <span class="label label-info nowrap">Description: {{airbnblisting.description}}</span>
+                      <div class="label label-info nowrap listingDescription">Description: {{airbnblisting.description}}</div>
                       <br/>
                       <br/>
                       <span class="label label-primary">Beds: {{airbnblisting.bedrooms}}</span>

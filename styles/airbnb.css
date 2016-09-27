@@ -1,3 +1,19 @@
+#container {
+
+    background: rgba(54, 25, 25, .35);
+    width: 70%;
+    min-width: 1200px;
+    padding: 5%;
+    padding-top:2%;
+    padding-bottom:0px;
+
+}
+
+#reservationForm {
+  background-color: rgb(255,249,153);
+  padding: 15px;
+}
+
 .nowrap {
     white-space: normal;
 }
@@ -5,7 +21,7 @@
 .listingrental-form {
   margin-bottom: 10px;
   padding: 15px;
-  background-color: #fff999;
+  background-color: rgb(255,249,153);
 }
 
 .listingrental-form-row {
@@ -16,4 +32,22 @@
   margin-top: 10px;
 }
 
- 
+.col-sm-4 {
+    width: 33.33333333%;
+}
+
+.airbnblisting {
+  height: 750px;
+  overflow: hidden;
+}
+
+.listingDescription {
+    height: 100px !important;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+}
+
+.listingImage {
+  height: 200px !important;
+}

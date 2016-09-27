@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "node ./test/cleanDB.js",
     "test": "mocha",
-    "test-jenkins": "set MOCHA_FILE=./test/reports/mocha.xml && mocha --reporter mocha-junit-reporter",
+    "test-jenkins": "istanbul cover --report cobertura node_modules/mocha/bin/_mocha -- -R mocha-junit-reporter --reporter-options mochaFile=./test/reports/mocha.xml",
     "acceptance-tests": "node ./test/cleanDB.js && node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects "
   },
   "repository": {
@@ -27,13 +27,18 @@
     "express": "^4.14.0",
     "mocha": "^3.0.2",
     "moment": "^2.15.1",
+    "ngmap": "^1.17.7",
     "path": "^0.12.7",
+    "should": "^11.1.0",
     "sqlite3": "^3.1.4",
-    "sqlite3-transactions": "0.0.5"
+    "sqlite3-transactions": "0.0.5",
+    "supertest": "^2.0.0"
   },
   "devDependencies": {
     "cucumber": "^1.3.0",
+    "istanbul": "^0.4.5",
     "mocha-junit-reporter": "^1.12.0",
+    "rewire": "^2.5.2",
     "selenium-cucumber-js": "^1.2.3"
   }
 }

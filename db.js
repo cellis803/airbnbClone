@@ -101,6 +101,7 @@ module.exports = {
 
                     db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
                     db.run("INSERT INTO review VALUES ('cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',2,'1474476888675','Not cool',5,'My kinds got on my nerves the whole week, and our car broke down.')");
                     db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
                     db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
                     resolve();
@@ -287,6 +288,29 @@ module.exports = {
                                 console.log("Inserted rowid=" + this.lastID);
                                 resolve(this.lastID);
                             }
+                        });
+                });
+            });
+    }
+
+
+    getReviews: function(listingId) {
+        var reviewSQL = "SELECT review.*, review.rowid, u.name from review " +
+            "INNER JOIN user u on review.email = u.email " +
+            "WHERE review.listingId = " + listingId;
+
+        return new Promise(
+            (resolve, reject) => {
+                db.serialize(function () {
+                    db.all(reviewSQL,
+
+                        function (err, rows) {
+                            if (err) {
+                                reject("something went wrong");
+                            } else {
+                                resolve(rows);
+                            }
+
                         });
                 });
             });

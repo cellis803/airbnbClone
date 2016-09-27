@@ -38,6 +38,10 @@ app.factory('airbnbFactory', function($http) {
 
      createNewReview: function(reviewObj) {
         return $http.post('/review', reviewObj);
+      },
+
+      getReviewsByListing: function(listingId) {
+        return $http.get('/listings/' + listingId + '/reviews');
       }
    };
 });
