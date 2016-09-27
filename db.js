@@ -291,7 +291,7 @@ module.exports = {
                         });
                 });
             });
-    }
+    },
 
 
     getReviews: function(listingId) {
