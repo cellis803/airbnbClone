@@ -33,9 +33,15 @@ app.factory('airbnbFactory', function($http) {
 
       makeReservation: function(reserveSelectedListing, reservationInfo) {
         return $http.post('/makeReservation', reserveSelectedListing, reservationInfo);
+      },
+
+     createNewReview: function(reviewObj) {
+        return $http.post('/review', reviewObj);
+      },
+
+      getReviewsByListing: function(listingId) {
+        return $http.get('/listings/' + listingId + '/reviews');
       }
-
-
    };
 });
 
