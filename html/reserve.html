@@ -1,44 +1,43 @@
- 
-
 <div class="listing-form">
-    <h3>Reservation</h3> 
+    <h3>Reservation</h3>
     <div class="row listing-form-row">
-       <div class="col-sm-4">
-       </div>
-       <div class="col-sm-4">          
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
             <div class="thumbnail">
-              <h3>{{reserveSelectedListing.title}}</h3>
-              <img ng-src="static/images/{{reserveSelectedListing.image}}" alt="">
+                <h3>{{reserveSelectedListing.title}}</h3>
+                <img ng-src="static/images/{{reserveSelectedListing.image}}" alt="">
 
-               <div class="caption">             
-                    <h3><i class="glyphicon glyphicon-tag"></i>{{reserveSelectedListing.price | currency}}/{{reserveSelectedListing.duration}}&nbsp;&nbsp;<span class="label label-info nowrap">{{reserveSelectedListing.type}}</span>
+                <div class="caption">
+                    <h3><i class="glyphicon glyphicon-tag"></i>{{reserveSelectedListing.price | currency}}/{{reserveSelectedListing.duration}}&nbsp;&nbsp;
+                        <span
+                            class="label label-info nowrap">{{reserveSelectedListing.type}}</span>
                     </h3>
-                    <h4><i class="glyphicon glyphicon-home"></i> {{reserveSelectedListing.address1}}<br/>
-                     {{reserveSelectedListing.city}}&nbsp;&nbsp;{{reserveSelectedListing.state}}&nbsp;&nbsp;{{reserveSelectedListing.zip}}<br/>
-                     {{reserveSelectedListing.country}}              
-                    </h4>    
-                    <h4>
-                      <span class="label label-info nowrap">Description: {{reserveSelectedListing.description}}</span>
-                      <br/>
-                      <br/>
-                      <span class="label label-primary">Beds: {{reserveSelectedListing.bedrooms}}</span>
-                      <span class="label label-primary">Baths: {{reserveSelectedListing.bathrooms}}</span>
-                      <span class="label label-primary">Pool: {{reserveSelectedListing.pool}}</span>
-                      <span class="label label-primary">SqFt: {{reserveSelectedListing.area}}</span>
-                      <span class="label label-primary">Pets: {{reserveSelectedListing.petsAllowed}}</span>
-                      <br/>
-                      <br/>
-                      <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{reserveSelectedListing.name}}</span></span>
-                      <br/>
-                      <span class="glyphicon glyphicon-earphone">&nbsp;<span class="text-left">{{reserveSelectedListing.phone}}</span></span>
+                    <h4><i class="glyphicon glyphicon-home"></i> {{reserveSelectedListing.address1}}<br/> {{reserveSelectedListing.city}}&nbsp;&nbsp;{{reserveSelectedListing.state}}&nbsp;&nbsp;{{reserveSelectedListing.zip}}
+                        <br/> {{reserveSelectedListing.country}}
                     </h4>
-  
-              </div>
-            </div>                
-          </div>
-          <div class="col-sm-4">
-           </div>   
-      </div>  
+                    <h4>
+                        <span class="label label-info nowrap">Description: {{reserveSelectedListing.description}}</span>
+                        <br/>
+                        <br/>
+                        <span class="label label-primary">Beds: {{reserveSelectedListing.bedrooms}}</span>
+                        <span class="label label-primary">Baths: {{reserveSelectedListing.bathrooms}}</span>
+                        <span class="label label-primary">Pool: {{reserveSelectedListing.pool}}</span>
+                        <span class="label label-primary">SqFt: {{reserveSelectedListing.area}}</span>
+                        <span class="label label-primary">Pets: {{reserveSelectedListing.petsAllowed}}</span>
+                        <br/>
+                        <br/>
+                        <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{reserveSelectedListing.name}}</span></span>
+                        <br/>
+                        <span class="glyphicon glyphicon-earphone">&nbsp;<span class="text-left">{{reserveSelectedListing.phone}}</span></span>
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
 
 
     <div id="reservationForm">
@@ -437,10 +436,10 @@
             </div>
         </div>
 
-    <h3>Credit/Debit Card Information</h3>
+        <h3>Credit/Debit Card Information</h3>
 
         <div class="row listing-form-row">
-            
+
             <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-addon">Card Holder Name</span>
@@ -462,7 +461,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="input-group">
-                    <img src="images/credit.png"/>
+                    <img src="images/credit.png" />
                 </div>
             </div>
         </div>
@@ -471,7 +470,7 @@
         <div class="row listing-form-row">
             <div class="col-sm-6">
                 <div class="input-group">
-                    <span class="input-group-addon">Expiration Month</span>   
+                    <span class="input-group-addon">Expiration Month</span>
                     <select type="select" name="month" id="month" class="form-control" ng-model="reservationInfo.month">              
                             <option value="" selected="selected"></option>
                             <option value="01">01</option>
@@ -486,14 +485,14 @@
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
-                    </select>                       
+                    </select>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="input-group">
-                    <span class="input-group-addon">Expiration Year</span>                 
-                        <select type="select" name="year" id="year" class="form-control" ng-model="reservationInfo.year">                         
+                    <span class="input-group-addon">Expiration Year</span>
+                    <select type="select" name="year" id="year" class="form-control" ng-model="reservationInfo.year">                         
                                 <option value="" selected="selected"></option>
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
@@ -512,12 +511,14 @@
         </div>
         <br/>
         <div class="row listing-form-row">
-            <div class="col-sm-5"> 
+            <div class="col-sm-5">
             </div>
-            <div class="col-sm-4"> 
-            <button class="btn btn-primary btn-lg" ng-click="makeReservation(reserveSelectedListing, reservationInfo);">Make Reservation</button>
+            <div class="col-sm-4">
+                <button class="btn btn-primary btn-lg" ng-click="makeReservation(reserveSelectedListing, reservationInfo);">Make Reservation</button>
+                <button class="btn btn-primary btn-lg btn-danger" ng-click="cancel();">Cancel</button>
             </div>
-            <div class="col-sm-3"> 
+            <div class="col-sm-3">
+                
             </div>
         </div>
     </div>
