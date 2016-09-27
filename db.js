@@ -86,7 +86,7 @@ module.exports = {
                     db.run("INSERT INTO user VALUES ('akashpandya@gmail.com','Akash')");
 
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Remote Lighthouse','Remote lighthouse','House',2,1,0,'122 Front Street','','Bath','ME','04530','USA','888-123-4567','500','Weekly','north-sea-1674007__340.jpg',0,1000)");
-                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','888-221-4567','750','Bi-Weekly','img2.png',1,2000)");
+                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','888-221-4567','750','Bi-Weekly','lands-end.jpg',1,2000)");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Dream View','View of Lake Superior','Condo',1,1,0,'82340 state highway 13','','Bayfield','WI','54814','USA','888-223-4567','250','Weekly','superior.jpg',1,1500)");
                     db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Cricket Field View','Cricket Hangout','Apartment',1,1,1,'1415 W. Willow Grove Ave','','Philadelphia','PA','19118','USA','888-221-4444','250','Weekly','cricket.jpg',1,450)");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Victorian','Quaint Victorian Home','Apartment',1,1,0,'717 Washington Street','','Cape May','NJ','08204','USA','888-222-3333','375','Weekly','purplevictorian.jpg',1,750)");
