@@ -99,7 +99,8 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
   }
 
   $scope.createReview = function (reviewSelectedListing, newReview) {
-    window.location = "/#/login";
+    //window.location = "/#/login";
+    history.back();
     console.log('listing:' + JSON.stringify(reviewSelectedListing));
     console.log('newReview object:' + JSON.stringify(newReview));
     newReview.listingId = airbnbFactory.reviewSelectedListing;
