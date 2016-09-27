@@ -8,6 +8,12 @@
     padding-bottom:0px;
 
 }
+
+#reservationForm {
+  background-color: rgb(255,249,153);
+  padding: 15px;
+}
+
 .nowrap {
     white-space: normal;
 }
@@ -15,7 +21,7 @@
 .listingrental-form {
   margin-bottom: 10px;
   padding: 15px;
-  background-color: #fff999;
+  background-color: rgb(255,249,153);
 }
 
 .listingrental-form-row {
