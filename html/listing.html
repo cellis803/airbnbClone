@@ -1,9 +1,9 @@
-       <div class="col-sm-12 listingrental-form">      
-            <div class="row listingrental-form-row" ng-if="!addListing && !editListing">
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Min Rental Amount</span>
-                    <select type="select" name="minPrice" id="minPrice" ng-model="rentalAmt.min" class="form-control">
+<div class="col-sm-12 listingrental-form">
+  <div class="row listingrental-form-row" ng-if="!addListing && !editListing">
+    <div class="col-sm-6">
+      <div class="input-group">
+        <span class="input-group-addon">Min Rental Amount</span>
+        <select type="select" name="minPrice" id="minPrice" ng-model="rentalAmt.min" class="form-control">
                       <option value="100">$100</option>
                       <option value="200">$200</option>
                       <option value="300">$300</option>
@@ -16,13 +16,13 @@
                       <option value="1000">$1,000</option>
                       <option value="100000">$100,000</option>
                     </select>
-                  </div>          
-                </div>
+      </div>
+    </div>
 
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Max Rental Amount</span>
-                    <select type="select" name="maxPrice" id="maxPrice" ng-model="rentalAmt.max" class="form-control">
+    <div class="col-sm-6">
+      <div class="input-group">
+        <span class="input-group-addon">Max Rental Amount</span>
+        <select type="select" name="maxPrice" id="maxPrice" ng-model="rentalAmt.max" class="form-control">
                       <option value="100">$100</option>
                       <option value="200">$200</option>
                       <option value="300">$300</option>
@@ -35,397 +35,397 @@
                       <option value="1000">$1,000</option>
                       <option value="100000">$100,000</option>
                     </select>
-                  </div>          
-                </div>
-          </div>
+      </div>
+    </div>
+  </div>
 
 
-          <button class="btn btn-primary" ng-click="addListing = !addListing" ng-show="!addListing && !editListing">Add Listing</button>
-          <button class="btn btn-danger" ng-click="addListing = !addListing" ng-show="addListing">Close</button>
+  <button class="btn btn-primary" ng-click="addListing = !addListing" ng-show="!addListing && !editListing">Add Listing</button>
+  <button class="btn btn-danger" ng-click="addListing = !addListing" ng-show="addListing">Close</button>
 
-          <div class="listing-form" ng-if="addListing">
- 
-           <h3>Add a Listing</h3>
- 
-             <div class="row listing-form-row">
-                  <div class="col-sm-6">
-                    <div class="input-group">
-                      <span class="input-group-addon">Title</span>
-                      <input type="text" placeholder="Title" class="form-control" ng-model="newListing.title"/> 
-                    </div>
-                  </div>
-                  <div class="col-sm-6">  
-                    <div class="input-group">
-                          <span class="input-group-addon">Picture</span>
-                          <input type="file"  fileread="newListing.image" size="45"/>                          
-                    </div>
-                  </div>
-            </div>      
+  <div class="listing-form" ng-if="addListing">
 
-            <div class="row listing-form-row">
-              <div class="col-sm-6">
-                <div class="input-group">
-                  <span class="input-group-addon">Address</span>
-                  <input type="text" placeholder="Address" class="form-control" ng-model="newListing.address1"/>
-                </div>
-              </div>
+    <h3>Add a Listing</h3>
 
-              <div class="col-sm-6">                
-              </div>
-            </div>
-
-            <div class="row listing-form-row">
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">City</span>
-                      <input type="text" placeholder="City" class="form-control" ng-model="newListing.city"/>
-                    </div>    
-                </div>  
-                <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">State</span>
-                      <input type="text" placeholder="State" class="form-control" ng-model="newListing.state"/>
-                    </div>    
-                </div>  
-                <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">Zip</span>
-                      <input type="text" placeholder="Zip" class="form-control" ng-model="newListing.zip"/>
-                    </div>    
-                </div>  
-             </div>  
-             
-             
-             <div class="row listing-form-row">
-                  <div class="col-sm-6">
-                    <div class="input-group">
-                      <span class="input-group-addon">Country</span>
-                      <input type="text" placeholder="Country" class="form-control" ng-model="newListing.country"/>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">                
-                  </div>
-             </div>
-  
-             <div class="row listing-form-row">
-                <div class="col-sm-4">
-                  <div class="input-group">
-                    <span class="input-group-addon">Property Type</span>
-                    <select type="select" name="propertyType" id="propertyType" class="form-control" ng-model="newListing.type">
-                      <option value="House">House</option>
-                      <option value="Condo">Condo</option>
-                      <option value="Duplex">Duplex</option>
-                      <option value="Apartment">Apartment</option>
-                    </select>
-                  </div>
-               </div>
-
-               <div class="col-sm-4">
-                <div class="input-group">
-                  <span class="input-group-addon">Price</span>
-                  <input type="text" placeholder="price" class="form-control" ng-model="newListing.price"/>
-                </div>
-               </div> 
-
-               <div class="col-sm-4">
-                <div class="input-group">
-                  <span class="input-group-addon">Duration</span>                  
-                  <select type="select" name="Duration" id="Duration" class="form-control" ng-model="newListing.duration">
-                      <option value="Weekly">Weekly</option>
-                      <option value="Bi-Weekly">Bi-Weekly</option>
-                      <option value="Monthly">Monthly</option>                      
-                    </select>
-                </div>
-              </div>
-            </div>
-             
-          
-            <div class="row listing-form-row">
-              <div class="col-sm-12">
-                <div class="input-group">
-                  <span class="input-group-addon">Description</span>
-                  <textarea type="text" placeholder="Description" class="form-control" ng-model="newListing.description"></textarea>
-                </div>
-              </div>
-            </div>
-
-
-              <div class="row listing-form-row">
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Beds</span>
-                    <input type="text" placeholder="Bedrooms" class="form-control" ng-model="newListing.bedrooms"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Baths</span>
-                    <input type="text" placeholder="Bathrooms" class="form-control" ng-model="newListing.bathrooms"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <span class="input-group-addon">Area SqFt</span>
-                    <input type="text" placeholder="Area in SqFt" class="form-control" ng-model="newListing.area"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Pool</span>                  
-                    <select type="select" name="pool" id="pool" class="form-control" ng-model="newListing.pool">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>                                         
-                      </select>
-                  </div>
-                </div> 
-
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <span class="input-group-addon">Pets Allowed</span>                  
-                    <select type="select" name="petsAllowed" id="petsAllowed" class="form-control" ng-model="newListing.petsAllowed">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>                                         
-                      </select>
-                  </div>
-                </div> 
-
-              </div>
-
-              <div class="row listing-form-row">                
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Contact</span>
-                    <input type="text" placeholder="Contact Person" class="form-control" ng-model="newListing.email"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Phone</span>
-                    <input type="text" placeholder="Phone" class="form-control" ng-model="newListing.phone"/>
-                  </div>
-                </div> 
-              </div>
- 
-            <button class="btn btn-primary listing-button" ng-click="createListing(newListing);" ng-show="addListing">Add</button>            
-         
-           </div>
-
-
-          <div class="listing-form" ng-if="editListing">
-
-            <h3>Edit Listing</h3>
-
-             <div class="row listing-form-row">
-                  <div class="col-sm-6">
-                    <div class="input-group">
-                      <span class="input-group-addon">Title</span>
-                      <input type="text" placeholder="Title" class="form-control" ng-model="existingListing.title"/> 
-                    </div>
-                  </div>
-                  <div class="col-sm-6">  
-                    <div class="input-group">
-                          <span class="input-group-addon">Picture</span>
-                          <input type="file"  fileread="existingListing.image" size="45"/>                          
-                    </div>
-                  </div>
-            </div>      
-
-            <div class="row listing-form-row">
-              <div class="col-sm-6">
-                <div class="input-group">
-                  <span class="input-group-addon">Address</span>
-                  <input type="text" placeholder="Address" class="form-control" ng-model="existingListing.address1"/>
-                </div>
-              </div>
-
-              <div class="col-sm-6">                
-              </div>
-            </div>
-
-            <div class="row listing-form-row">
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">City</span>
-                      <input type="text" placeholder="City" class="form-control" ng-model="existingListing.city"/>
-                    </div>    
-                </div>  
-                <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">State</span>
-                      <input type="text" placeholder="State" class="form-control" ng-model="existingListing.state"/>
-                    </div>    
-                </div>  
-                <div class="col-sm-4">
-                    <div class="input-group">
-                      <span class="input-group-addon">Zip</span>
-                      <input type="text" placeholder="Zip" class="form-control" ng-model="existingListing.zip"/>
-                    </div>    
-                </div>  
-             </div>  
-             
-             
-             <div class="row listing-form-row">
-                  <div class="col-sm-6">
-                    <div class="input-group">
-                      <span class="input-group-addon">Country</span>
-                      <input type="text" placeholder="Country" class="form-control" ng-model="existingListing.country"/>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">                
-                  </div>
-             </div>
-  
-             <div class="row listing-form-row">
-                <div class="col-sm-4">
-                  <div class="input-group">
-                    <span class="input-group-addon">Property Type</span>
-                    <select type="select" name="propertyType" id="propertyType" class="form-control" ng-model="existingListing.type">
-                      <option value="House">House</option>
-                      <option value="Condo">Condo</option>
-                      <option value="Duplex">Duplex</option>
-                      <option value="Apartment">Apartment</option>
-                    </select>
-                  </div>
-               </div>
-
-               <div class="col-sm-4">
-                <div class="input-group">
-                  <span class="input-group-addon">Price</span>
-                  <input type="text" placeholder="price" class="form-control" ng-model="existingListing.price"/>
-                </div>
-               </div> 
-
-               <div class="col-sm-4">
-                <div class="input-group">
-                  <span class="input-group-addon">Duration</span>                  
-                  <select type="select" name="Duration" id="Duration" class="form-control" ng-model="existingListing.duration">
-                      <option value="Weekly">Weekly</option>
-                      <option value="Bi-Weekly">Bi-Weekly</option>
-                      <option value="Monthly">Monthly</option>                      
-                    </select>
-                </div>
-              </div>
-            </div>
-             
-          
-            <div class="row listing-form-row">
-              <div class="col-sm-12">
-                <div class="input-group">
-                  <span class="input-group-addon">Description</span>
-                  <textarea type="text" placeholder="Description" class="form-control" ng-model="existingListing.description"></textarea>
-                </div>
-              </div>
-            </div>
-
-
-              <div class="row listing-form-row">
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Beds</span>
-                    <input type="text" placeholder="Bedrooms" class="form-control" ng-model="existingListing.bedrooms"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Baths</span>
-                    <input type="text" placeholder="Bathrooms" class="form-control" ng-model="existingListing.bathrooms"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <span class="input-group-addon">Area SqFt</span>
-                    <input type="text" placeholder="Area in SqFt" class="form-control" ng-model="existingListing.area"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-2">
-                  <div class="input-group">
-                    <span class="input-group-addon">Pool</span>                  
-                    <select type="select" name="pool" id="pool" class="form-control" ng-model="existingListing.pool">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>                                         
-                      </select>
-                  </div>
-                </div> 
-
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <span class="input-group-addon">Pets Allowed</span>                  
-                    <select type="select" name="petsAllowed" id="petsAllowed" class="form-control" ng-model="existingListing.petsAllowed">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>                                         
-                      </select>
-                  </div>
-                </div> 
-
-              </div>
-
-              <div class="row listing-form-row">                
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Contact</span>
-                    <input type="text" placeholder="Contact Person" class="form-control" ng-model="existingListing.email"/>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">Phone</span>
-                    <input type="text" placeholder="Phone" class="form-control" ng-model="existingListing.phone"/>
-                  </div>
-                </div> 
-              </div>
-
-            
-            <button class="btn btn-primary listing-button" ng-click="listingEdit(existingListing)" ng-show="editListing">Save</button>
-            <button class="btn btn-danger listing-button" ng-click="deleteListing(existingListing)" ng-show="editListing">Delete</button>
-            
-          </div>
-
-
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Title</span>
+          <input type="text" placeholder="Title" class="form-control" ng-model="newListing.title" />
         </div>
-         
-       <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
-            <div class="thumbnail">
-              <h3>{{airbnblisting.title}}</h3>
-              <img class="listingImage" ng-src="static/images/{{airbnblisting.image}}" alt="">
+      </div>
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Picture</span>
+          <input type="file" fileread="newListing.image" size="45" />
+        </div>
+      </div>
+    </div>
 
-               <div class="caption">             
-                    <h3><i class="glyphicon glyphicon-tag"></i>{{airbnblisting.price | currency}}/{{airbnblisting.duration}}&nbsp;&nbsp;<span class="label label-info nowrap">{{airbnblisting.type}}</span>
-                    </h3>
-                    <h4><i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/>
-                     {{airbnblisting.city}}&nbsp;&nbsp;{{airbnblisting.state}}&nbsp;&nbsp;{{airbnblisting.zip}}<br/>
-                     {{airbnblisting.country}}              
-                    </h4>    
-                    <h4>
-                      <div class="label label-info nowrap listingDescription">Description: {{airbnblisting.description}}</div>
-                      <br/>
-                      <br/>
-                      <span class="label label-primary">Beds: {{airbnblisting.bedrooms}}</span>
-                      <span class="label label-primary">Baths: {{airbnblisting.bathrooms}}</span>
-                      <span class="label label-primary">Pool: {{airbnblisting.pool}}</span>
-                      <span class="label label-primary">SqFt: {{airbnblisting.area}}</span>
-                      <span class="label label-primary">Pets: {{airbnblisting.petsAllowed}}</span>
-                      <br/>
-                      <br/>
-                      <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{airbnblisting.name}}</span></span>
-                      <br/>
-                      <span class="glyphicon glyphicon-earphone">&nbsp;<span class="text-left">{{airbnblisting.phone}}</span></span>
-                    </h4>
- 
-                     <button class="btn btn-sm btn-warning" ng-click="editDetails(airbnblisting)">Edit</button>
-                     <button class="btn btn-sm btn-info" ng-click="review(airbnblisting.rowid)">Create Review</button>                     
-                     <button class="btn btn-sm btn-success" ng-click="reserve(airbnblisting)">Reserve</button>
-                              
-              </div>
-            </div>                
-          </div>    
-       
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Address</span>
+          <input type="text" placeholder="Address" class="form-control" ng-model="newListing.address1" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">City</span>
+          <input type="text" placeholder="City" class="form-control" ng-model="newListing.city" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">State</span>
+          <input type="text" placeholder="State" class="form-control" ng-model="newListing.state" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Zip</span>
+          <input type="text" placeholder="Zip" class="form-control" ng-model="newListing.zip" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Country</span>
+          <input type="text" placeholder="Country" class="form-control" ng-model="newListing.country" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Property Type</span>
+          <select type="select" name="propertyType" id="propertyType" class="form-control" ng-model="newListing.type">
+                      <option value="House">House</option>
+                      <option value="Condo">Condo</option>
+                      <option value="Duplex">Duplex</option>
+                      <option value="Apartment">Apartment</option>
+                    </select>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Price</span>
+          <input type="text" placeholder="price" class="form-control" ng-model="newListing.price" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Duration</span>
+          <select type="select" name="Duration" id="Duration" class="form-control" ng-model="newListing.duration">
+                      <option value="Weekly">Weekly</option>
+                      <option value="Bi-Weekly">Bi-Weekly</option>
+                      <option value="Monthly">Monthly</option>                      
+                    </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <span class="input-group-addon">Description</span>
+          <textarea type="text" placeholder="Description" class="form-control" ng-model="newListing.description"></textarea>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Beds</span>
+          <input type="text" placeholder="Bedrooms" class="form-control" ng-model="newListing.bedrooms" />
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Baths</span>
+          <input type="text" placeholder="Bathrooms" class="form-control" ng-model="newListing.bathrooms" />
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="input-group">
+          <span class="input-group-addon">Area SqFt</span>
+          <input type="text" placeholder="Area in SqFt" class="form-control" ng-model="newListing.area" />
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Pool</span>
+          <select type="select" name="pool" id="pool" class="form-control" ng-model="newListing.pool">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>                                         
+                      </select>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="input-group">
+          <span class="input-group-addon">Pets Allowed</span>
+          <select type="select" name="petsAllowed" id="petsAllowed" class="form-control" ng-model="newListing.petsAllowed">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>                                         
+                      </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Contact</span>
+          <input type="text" placeholder="Contact Person" class="form-control" ng-model="newListing.email" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Phone</span>
+          <input type="text" placeholder="Phone" class="form-control" ng-model="newListing.phone" />
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary listing-button" ng-click="createListing(newListing);" ng-show="addListing">Add</button>
+
+  </div>
+
+
+  <div class="listing-form" ng-if="editListing">
+
+    <h3>Edit Listing</h3>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Title</span>
+          <input type="text" placeholder="Title" class="form-control" ng-model="existingListing.title" />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Picture</span>
+          <input type="file" fileread="existingListing.image" size="45" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Address</span>
+          <input type="text" placeholder="Address" class="form-control" ng-model="existingListing.address1" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">City</span>
+          <input type="text" placeholder="City" class="form-control" ng-model="existingListing.city" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">State</span>
+          <input type="text" placeholder="State" class="form-control" ng-model="existingListing.state" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Zip</span>
+          <input type="text" placeholder="Zip" class="form-control" ng-model="existingListing.zip" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Country</span>
+          <input type="text" placeholder="Country" class="form-control" ng-model="existingListing.country" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Property Type</span>
+          <select type="select" name="propertyType" id="propertyType" class="form-control" ng-model="existingListing.type">
+                      <option value="House">House</option>
+                      <option value="Condo">Condo</option>
+                      <option value="Duplex">Duplex</option>
+                      <option value="Apartment">Apartment</option>
+                    </select>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Price</span>
+          <input type="text" placeholder="price" class="form-control" ng-model="existingListing.price" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Duration</span>
+          <select type="select" name="Duration" id="Duration" class="form-control" ng-model="existingListing.duration">
+                      <option value="Weekly">Weekly</option>
+                      <option value="Bi-Weekly">Bi-Weekly</option>
+                      <option value="Monthly">Monthly</option>                      
+                    </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <span class="input-group-addon">Description</span>
+          <textarea type="text" placeholder="Description" class="form-control" ng-model="existingListing.description"></textarea>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row listing-form-row">
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Beds</span>
+          <input type="text" placeholder="Bedrooms" class="form-control" ng-model="existingListing.bedrooms" />
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Baths</span>
+          <input type="text" placeholder="Bathrooms" class="form-control" ng-model="existingListing.bathrooms" />
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="input-group">
+          <span class="input-group-addon">Area SqFt</span>
+          <input type="text" placeholder="Area in SqFt" class="form-control" ng-model="existingListing.area" />
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="input-group">
+          <span class="input-group-addon">Pool</span>
+          <select type="select" name="pool" id="pool" class="form-control" ng-model="existingListing.pool">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>                                         
+                      </select>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="input-group">
+          <span class="input-group-addon">Pets Allowed</span>
+          <select type="select" name="petsAllowed" id="petsAllowed" class="form-control" ng-model="existingListing.petsAllowed">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>                                         
+                      </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row listing-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Contact</span>
+          <input type="text" placeholder="Contact Person" class="form-control" ng-model="existingListing.email" />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Phone</span>
+          <input type="text" placeholder="Phone" class="form-control" ng-model="existingListing.phone" />
+        </div>
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary listing-button" ng-click="listingEdit(existingListing)" ng-show="editListing">Save</button>
+    <button class="btn btn-danger listing-button" ng-click="deleteListing(existingListing)" ng-show="editListing">Delete</button>
+
+  </div>
+
+
+</div>
+
+<div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">
+  <div class="thumbnail">
+    <h3>{{airbnblisting.title}}</h3>
+    <img class="listingImage" ng-src="static/images/{{airbnblisting.image}}" alt="">
+
+    <div class="caption">
+      <h3><i class="glyphicon glyphicon-tag"></i>{{airbnblisting.price | currency}}/{{airbnblisting.duration}}&nbsp;&nbsp;
+        <span
+          class="label label-info nowrap">{{airbnblisting.type}}</span>
+      </h3>
+      <h4><i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/> {{airbnblisting.city}}&nbsp;&nbsp;{{airbnblisting.state}}&nbsp;&nbsp;{{airbnblisting.zip}}
+        <br/> {{airbnblisting.country}}
+      </h4>
+      <h4>
+        <div class="label label-info nowrap listingDescription">Description: {{airbnblisting.description}}</div>
+        <br/>
+        <br/>
+        <span class="label label-primary">Beds: {{airbnblisting.bedrooms}}</span>
+        <span class="label label-primary">Baths: {{airbnblisting.bathrooms}}</span>
+        <span class="label label-primary">Pool: {{airbnblisting.pool}}</span>
+        <span class="label label-primary">SqFt: {{airbnblisting.area}}</span>
+        <span class="label label-primary">Pets: {{airbnblisting.petsAllowed}}</span>
+        <br/>
+        <br/>
+        <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{airbnblisting.name}}</span></span>
+        <br/>
+        <span class="glyphicon glyphicon-earphone">&nbsp;<span class="text-left">{{airbnblisting.phone}}</span></span>
+      </h4>
+
+      <button class="btn btn-sm btn-warning" ng-click="editDetails(airbnblisting)">Edit</button>
+      <button class="btn btn-sm btn-success" ng-click="reserve(airbnblisting)">Reserve</button>
+      <button class="btn btn-sm btn-info" ng-click="review(airbnblisting.rowid)">Create Review</button>
+
+    </div>
+  </div>
+</div>
