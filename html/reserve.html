@@ -22,9 +22,9 @@
                         <br/>
                         <span class="label label-primary">Beds: {{reserveSelectedListing.bedrooms}}</span>
                         <span class="label label-primary">Baths: {{reserveSelectedListing.bathrooms}}</span>
-                        <span class="label label-primary">Pool: {{reserveSelectedListing.pool}}</span>
+                        <span class="label label-primary">Pool: {{reserveSelectedListing.pool ? 'Yes' : 'No'}}</span>
                         <span class="label label-primary">SqFt: {{reserveSelectedListing.area}}</span>
-                        <span class="label label-primary">Pets: {{reserveSelectedListing.petsAllowed}}</span>
+                        <span class="label label-primary">Pets: {{reserveSelectedListing.petsAllowed ? 'Yes' : 'No'}}</span>
                         <br/>
                         <br/>
                         <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{reserveSelectedListing.name}}</span></span>

@@ -19,9 +19,9 @@
           <br/>
           <span class="label label-primary">Beds: {{airbnblisting.bedrooms}}</span>
           <span class="label label-primary">Baths: {{airbnblisting.bathrooms}}</span>
-          <span class="label label-primary">Pool: {{airbnblisting.pool}}</span>
+          <span class="label label-primary">Pool: {{airbnblisting.pool ? 'Yes' : 'No'}}</span>
           <span class="label label-primary">SqFt: {{airbnblisting.area}}</span>
-          <span class="label label-primary">Pets: {{airbnblisting.petsAllowed}}</span>
+          <span class="label label-primary">Pets: {{airbnblisting.petsAllowed ? 'Yes' : 'No'}}</span>
           <br/>
           <br/>
           <span class="glyphicon glyphicon-user">&nbsp;<span class="text-left">{{airbnblisting.name}}</span></span>
