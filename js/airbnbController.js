@@ -110,7 +110,13 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory) {
     });
     
   }
-<<<<<<< HEAD
+
+
+
+  $scope.cancel = function () {
+    window.location = "/#/login";
+  }
+
 });
 
 app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactory) {
@@ -122,10 +128,4 @@ app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactor
       console.log(error);
     });
 
-=======
-
-  $scope.cancel = function () {
-    window.location = "/#/login";
-  }
->>>>>>> 049abb01945c44ed108fd4dbba274aefa230b4fe
 });
