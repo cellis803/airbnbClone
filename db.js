@@ -109,6 +109,22 @@ module.exports = {
             });
     },
 
+    login: function(emailAddr) {
+        return new Promise(
+            (resolve, reject) => {
+                db.serialize(function () {
+                    db.all("SELECT * from user u where u.email = '" + emailAddr + "'", function (err, rows) {
+                            if (rows.length === 1) {
+                                resolve(rows[0]);
+                            } else {
+                                reject("User does not exist");
+                            }
+                            
+                        });
+                });  
+        });
+    },
+
     getAllListings: function (listingId) {
 
         var listingSQL = "SELECT listing.*, listing.rowid, u.name from listing " +
