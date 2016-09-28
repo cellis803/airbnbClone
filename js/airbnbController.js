@@ -17,11 +17,11 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     min: 0,
     max: 100000
   }
-
-  $scope.markers = [];
+ 
+ $scope.markers = [];
   var mapOptions = {
-      zoom: 3,
-      center: new google.maps.LatLng(37.090240,-95.712891),
+      zoom: 1,
+      center: new google.maps.LatLng(-34.397, 150.644),
       mapTypeId: google.maps.MapTypeId.TERRAIN
   }
  
