@@ -25,11 +25,15 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
       mapTypeId: google.maps.MapTypeId.TERRAIN
   }
 
-  airbnbFactory.getListings().success(function (data) {
-    $scope.airbnblistings = data;
-  }).error(function (error) {
-    console.log(error);
-  });
+  $scope.init = function() {
+    airbnbFactory.getListings().success(function (data) {
+      $scope.airbnblistings = data;
+    }).error(function (error) {
+      console.log(error);
+    });
+  };
+
+
 
   $scope.openInfoWindow = function (e, mapListing) {
     console.log('openInfoWindow', mapListing.latitude, mapListing.logitude);
