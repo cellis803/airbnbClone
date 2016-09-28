@@ -95,17 +95,23 @@ module.exports = {
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Tiny House','Portable Tiny Home','Home',1,1,0,'1316 Madison Ave','','Front Royal','VA','22630','USA','888-444-3333','200','Monthly','purpletinyhouse.jpg',1,350, '38.934826', '-78.205425')");
                     db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Ship Tree House','Anchors away in a treehouse','House',1,1,0,'160 Douglas Park Rd','','Crescent City','CA','95531','USA','888-221-4444','250','Weekly','shiptreehouse.jpg',1,450, '41.793290', '-124.056765')");
                     db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Tree House','Remote Tree House with swinging bridge','House',1,1,1,'5418 Monticello Ave','','Dallas','TX','19116','USA','888-777-9999','200','Bi-Weekly','swingingbridgetreehouse.jpg',0,400, '32.826183', '-96.776574')");
+                    db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Red and White Lighthouse','Stay in a Lighthouse','Apartment',1,1,0,'215 Lighthouse Ave','','Cape May','NJ','08204','USA','888-222-4444','1200','Bi-Weekly','ocean-947346__340.jpg',1,250, '38.932207', '-74.960712')");
 
                     db.run("INSERT INTO reservation VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (4,'akashpandya@gmail.com',4,'1474476888675','')");
 
-                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',1,'1474476888675','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
-                    db.run("INSERT INTO review VALUES ('cellis803@gmail.com',2,'1474476888675','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
-                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',2,'1474476888675','Not cool',5,'My kids got on my nerves the whole week, and our car broke down.')");
-                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',3,'1474476888675','Disappointing',3,'No power and torrential rain but will try another time')");
-                    db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',4,'1474476888675','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',1,'July 2016','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
+                    db.run("INSERT INTO review VALUES ('cellis803@gmail.com',2,'June 2016','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',2,'March 2016','Not cool',5,'My kids got on my nerves the whole week, and our car broke down.')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',3,'January 2016','Disappointing',3,'No power and torrential rain but will try another time')");
+                    db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',4,'September 2016','Stay away',2,'Rooms too small and very noisy. Excellent location.')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',9,'July 2016','Breathtaking',5,'Cannot wait to go back')");
+                    db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',9,'January 2016','OK',3,'Avoid during tropical storm')");
+
+
+
                     resolve();
                 });
             });
