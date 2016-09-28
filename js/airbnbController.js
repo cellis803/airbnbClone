@@ -2,7 +2,7 @@ var app = angular.module('airbnbApp');
 
 app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParams) {
 
-  $scope.airbnblistings;
+  $scope.airbnblistings = airbnbFactory.airbnblistings;
   $scope.useremail;
   $scope.reserveSelectedListing = airbnbFactory.reserveSelectedListing;
 
@@ -24,14 +24,15 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
       center: new google.maps.LatLng(37.090240,-95.712891),
       mapTypeId: google.maps.MapTypeId.TERRAIN
   }
+ 
 
-  $scope.init = function() {
-    airbnbFactory.getListings().success(function (data) {
+ $scope.init = function() {
+  airbnbFactory.getListings().success(function (data) {
       $scope.airbnblistings = data;
     }).error(function (error) {
       console.log(error);
     });
-  };
+ }
 
   $scope.openInfoWindow = function (e, mapListing) {
     console.log('openInfoWindow', mapListing.latitude, mapListing.logitude);
@@ -61,8 +62,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
 $scope.loadMyMap = function () {
     var data = $scope.airbnblistings;  
     console.log("data: ", data.length, ", " , data);  
- 
-   var geocoder = new google.maps.Geocoder();
+  
    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions); 
    var infoWindow = new google.maps.InfoWindow();  
    var address;    
@@ -94,19 +94,33 @@ $scope.loadMyMap = function () {
   }
 
   $scope.createListing = function (newListing) {
+    console.log('newListing', newListing);    
     if (newListing) {
-      newListing.image = newListing.image.name;
-      newListing.name = newListing.email;
-      console.log('newListing:' + JSON.stringify(newListing));
-      airbnbFactory.addListing(newListing).success(function (data) {
-        console.log('rowid:' + data.rowid);
-        newListing.rowid = data.rowid;
-        $scope.airbnblistings.push(newListing);
-        console.log('airbnblistings length:' + $scope.airbnblistings.length);
-      }).error(function (error) {
-        console.log(error);
-      });
-      $scope.newListing = {};
+      var address = address = newListing.address1 + ', ' + newListing.city + ', ' + newListing.state  + ' ' + newListing.zip;
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode( { 'address': address}, function(results, status) {              
+          if (status == 'OK') { 
+            newListing.latitude = results[0].geometry.location.lat();
+            newListing.logitude = results[0].geometry.location.lng(); 
+            console.log('latlag:' +  newListing.latitude,newListing.logitude);
+            console.log('newListing after Geo call:', newListing);    
+            newListing.image = newListing.image.name;
+            newListing.name = newListing.email;
+            //console.log('newListing:' + JSON.stringify(newListing));
+            airbnbFactory.addListing(newListing).success(function (data) {
+              //console.log('rowid:' + data.rowid);
+              newListing.rowid = data.rowid;
+              $scope.airbnblistings.push(newListing);
+              //console.log('airbnblistings length:' + $scope.airbnblistings.length);
+            }).error(function (error) {
+              console.log(error);
+            });
+            $scope.newListing = {};
+          } else {             
+             console.log('Geocode was not successful for the following reason: ' + status);
+             alert('Geocode was not successful for the following reason: ' + status);
+          }      
+      });       
     }
   }
 
@@ -123,14 +137,18 @@ $scope.loadMyMap = function () {
 
   }
 
-    $scope.logout = function() {
-        $scope.useremail = "";
-        $scope.user = null;
-    };     
-
-  $scope.mapView = function () {
+ 
+  $scope.mapView = function (allListings) {
+   airbnbFactory.airbnblistings = allListings; 
    window.location = "/#/mapView";   
   }
+
+
+  $scope.logout = function() {
+        $scope.useremail = "";
+        $scope.user = null;
+   }    
+ 
 
   $scope.editDetails = function (editData) {
     $scope.editListing = true;
