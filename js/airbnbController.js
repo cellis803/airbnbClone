@@ -36,7 +36,9 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
 
   $scope.openInfoWindow = function (e, mapListing) {
     console.log('openInfoWindow', mapListing.latitude, mapListing.logitude);
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
      $scope.map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: new google.maps.LatLng(mapListing.latitude, mapListing.logitude),
@@ -106,6 +108,7 @@ $scope.loadMyMap = function () {
             console.log('newListing after Geo call:', newListing);    
             newListing.image = newListing.image.name;
             newListing.name = newListing.email;
+            newListing.email = airbnbFactory.user.email;
             //console.log('newListing:' + JSON.stringify(newListing));
             airbnbFactory.addListing(newListing).success(function (data) {
               //console.log('rowid:' + data.rowid);
@@ -126,7 +129,6 @@ $scope.loadMyMap = function () {
 
   $scope.handleLogin = function (email) {
     airbnbFactory.login(email).then(function(result) {
-      console.log("data: " + result.data);
         airbnbFactory.user = result.data;
         $scope.loginError = false;
         window.location = "/#/login";
@@ -139,8 +141,11 @@ $scope.loadMyMap = function () {
 
  
   $scope.mapView = function (allListings) {
-   airbnbFactory.airbnblistings = allListings; 
-   window.location = "/#/mapView";   
+    airbnbFactory.airbnblistings = allListings;
+    window.location = "/#/mapView";
+    setTimeout(function() {
+      $scope.loadMyMap();
+    }, 500);
   }
 
 
@@ -234,7 +239,12 @@ app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactor
     $scope.listingReviews = {};
 
     airbnbFactory.getListingById($routeParams.listingId).then(function (result) {
-            $scope.listingDetails = result;
+            $scope.listingDetails = result.data;
+            $scope.airbnblisting = result.data;
+            
+            setTimeout(function() {
+              $scope.openInfoWindow(null, result.data);
+            }, 1);
 
     }, function (error) {
       console.log(error);
