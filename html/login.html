@@ -15,6 +15,10 @@
             <span class="input-group-addon">Password</span>
             <input type="text " id="password " class="form-control " placeholder="Password" required>
           </div>
+          <br />
+          <div ng-if="loginError" class="alert alert-danger">
+              <strong >Login Failed. Please enter user name again.</strong>
+          </div>
         </div>
         <div class="row listing-form-row">
         </div>

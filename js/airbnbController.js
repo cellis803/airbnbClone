@@ -116,7 +116,7 @@ $scope.loadMyMap = function () {
         $scope.loginError = false;
         window.location = "/#/login";
     }, function() {
-        $scope.loginError = false;
+        $scope.loginError = true;
         console.log("could not log in user");
     });
 
