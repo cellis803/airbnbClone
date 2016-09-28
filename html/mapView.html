@@ -14,10 +14,10 @@
 
             <ul ng-repeat="airbnblisting in airbnblistings">
                 <a href="#" ng-click="openInfoWindow($event, airbnblisting)" style="color:white">  
-                <li><h4 class="label">{{airbnblisting.title}}</h4><br/>
-                <i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/>
+                <li><h3 class="label">{{airbnblisting.title}}</h3><br/>
+                <b><i class="glyphicon glyphicon-home"></i> {{airbnblisting.address1}}<br/>
                         {{airbnblisting.city}}&nbsp;&nbsp;{{airbnblisting.state}}&nbsp;&nbsp;{{airbnblisting.zip}}<br/>
-                        {{airbnblisting.country}}   
+                        {{airbnblisting.country}}</b>   
                 
                 </li>
                 </a>
