@@ -239,7 +239,8 @@ app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactor
     $scope.listingReviews = {};
 
     airbnbFactory.getListingById($routeParams.listingId).then(function (result) {
-            $scope.listingDetails = result;
+            $scope.listingDetails = result.data;
+            $scope.airbnblisting = result.data;
             
             setTimeout(function() {
               $scope.openInfoWindow(null, result.data);
