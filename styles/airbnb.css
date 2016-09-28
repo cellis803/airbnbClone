@@ -68,6 +68,12 @@
   height: 500px;
   background-color: rgba(54, 25, 25, .35)
 }
+
+.review-body {
+      border: 2px solid purple;
+      width: 85%;
+      font-size: 14px; 
+}
  
 #map{
     top: 25px;

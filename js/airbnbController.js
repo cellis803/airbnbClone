@@ -241,8 +241,19 @@ app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactor
       console.log(error);
     });
 
+    $scope.convertNumberToArray = function(number) {
+      var numArray = new Array(5);
+      for (var i=0; i < number; i++) {
+        numArray[i] = i;
+      }
+      return numArray;
+    }
+
+    $scope.reviewRatingToConvert = [];
     airbnbFactory.getReviewsByListing($routeParams.listingId).then(function(result) {
             $scope.listingReviews = result.data;
+            //$scope.reviewRatingToConvert [] = result.rating [];
+            
 
     }, function(error) {
         console.log(error);
