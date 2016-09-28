@@ -1,5 +1,5 @@
 # ./features/editOrDelete.feature
-@RunMe
+
 Feature: Edit, Update, Delete a listing
   I want to be able to edit or delete an existing listing
 

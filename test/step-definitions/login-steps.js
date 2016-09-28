@@ -35,5 +35,13 @@ module.exports = function () {
             });                                                                                                                                                          
        });      
 
+       this.Then(/^I should see an error message$/, function (done) {                                                                                                                                       
+            driver.wait(until.elementsLocated(by.css(".alert-danger")), 30000);                                                                                                                 
+            driver.findElement(by.css(".alert-danger")).then(function (element) {
+                done(); 
+                                                                                                                                                                                
+            });                                                                                                                                                                                   
+       });         
+
         
 };

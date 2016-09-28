@@ -31,7 +31,6 @@ Background:
     And I enter "1000" into the "Area SqFt" field
     And I select "Yes" in the "Pool" field
     And I select "Yes" in the "Pets Allowed" field
-    And I enter "cellis803@gmail.com" into the "Contact" field
     And I enter "4109655500" into the "Phone" field
     And I upload "C:\Users\admin\temp.png" as my image
     And I click on "Add"
