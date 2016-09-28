@@ -3,7 +3,7 @@
   <div class="" ng-repeat="airbnblisting in listingDetails | airbnbFilter:rentalAmt | orderBy:'-rowid'">          
     <div class="thumbnail">
       <h3>{{airbnblisting.title}}</h3>
-      <img class="listingImage" ng-src="static/images/{{airbnblisting.image}}" alt="">
+      <img class="" ng-src="static/images/{{airbnblisting.image}}" alt="">
 
       <div class="caption">
         <h3><i class="glyphicon glyphicon-tag"></i>{{airbnblisting.price | currency}}/{{airbnblisting.duration}}&nbsp;&nbsp;
@@ -34,21 +34,21 @@
         <button class="btn btn-sm btn-info" ng-click="review(airbnblisting.rowid)">Create Review</button>
 
       </div>
-
-      <div id="map">     
+      <div>
+        <div id="map">     
+        </div>
       </div>
+      <div id="reviews">
 
-      <h3>Reviews</h3>
-      <div class="review" ng-repeat="review in listingReviews ">
+        <h3>Reviews</h3>
+        <div class="review" ng-repeat="review in listingReviews ">
 
-        <p>Review Title: {{review.reviewTitle}}<br/>
-        Review Rating: {{review.rating}}<br/>
-        Review: {{review.review}}<br/>
-        </p>
-      </div>  
-
+          <p>Review Title: {{review.reviewTitle}}<br/>
+          Review Rating: {{review.rating}}<br/>
+          Review: {{review.review}}<br/>
+          </p>
+        </div>  
+      </div>
     </div>              
   </div>
-  <div class="airbnblisting">
-  </div>   
 </div>
