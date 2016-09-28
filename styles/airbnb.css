@@ -74,8 +74,9 @@
     padding: 25px;
     height:700px; 
     width:800px; 
-    box-shadow: 3px 3px 10px gray;
-    }
+    overflow: visible !important;
+    
+}
 #mapRepeat{ 
      display: inline;
      }
