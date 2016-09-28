@@ -194,16 +194,7 @@ $scope.loadMyMap = function () {
     console.log('reserveSelectedListing:' + JSON.stringify(reserveSelectedListing));
     console.log('reservationInfo:' + JSON.stringify(reservationInfo));
     window.location = "/#/reservationConfirm";
-    /* airbnbFactory.makeReservation(reserveSelectedListing, reservationInfo).success(function () {
-       window.location = "/#/reservationConfirm";
-     }).error(function (error) {
-         console.log(error);
-     });  */
-  }
-  $scope.review = function (listing) {
-    airbnbFactory.reviewSelectedListing = listing;
-    console.log('$scope.reviewSelectedListing:', airbnbFactory.reviewSelectedListing);
-    window.location = "/#/review";
+
   }
 
   $scope.createReview = function (reviewSelectedListing, newReview) {
