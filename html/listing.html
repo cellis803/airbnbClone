@@ -1,4 +1,21 @@
 <div class="col-sm-12 listingrental-form">
+
+ <div class="row listingrental-form-row" ng-if="!addListing && !editListing">
+    <div class="col-sm-2">
+      <div class="input-group">
+          <button class="btn btn-primary" ng-click="addListing = !addListing" ng-show="!addListing && !editListing">Add Listing</button>
+     </div>
+    </div>
+    <div class="col-sm-8">     
+    </div>
+     <div class="col-sm-2">
+      <div class="input-group">            
+          <button class="btn btn-primary" ng-click="addListing = !addListing; mapView();" ng-show="!addListing && !editListing">Map View</button> 
+    </div>
+    </div>
+   </div> 
+   <br/>  
+
   <div class="row listingrental-form-row" ng-if="!addListing && !editListing">
     <div class="col-sm-6">
       <div class="input-group">
@@ -40,7 +57,6 @@
   </div>
 
 
-  <button class="btn btn-primary" ng-click="addListing = !addListing" ng-show="!addListing && !editListing">Add Listing</button>
   <button class="btn btn-danger" ng-click="addListing = !addListing" ng-show="addListing">Close</button>
 
   <div class="listing-form" ng-if="addListing">
