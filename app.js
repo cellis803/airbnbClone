@@ -148,9 +148,9 @@ app.get('/listings/:listingId/reviews', function (request, response) {
         });
 });
 
-var server = app.listen(8080, function () {
+var server = app.listen(3000, function () {
     console.log('Starting airbnb clone server...');
-    console.log('Example app listening on port 8080...');
+    console.log('Example app listening on port 3000...');
 
     var p = airbnbDB.initDB();
     p.then(

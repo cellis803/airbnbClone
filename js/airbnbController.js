@@ -18,6 +18,12 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     max: 100000
   }
 
+  $scope.markers = [];
+  var mapOptions = {
+      zoom: 3,
+      center: new google.maps.LatLng(37.090240,-95.712891),
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+  }
 
   $scope.init = function() {
     airbnbFactory.getListings().success(function (data) {
@@ -27,6 +33,67 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     });
   };
 
+
+
+  $scope.openInfoWindow = function (e, mapListing) {
+    console.log('openInfoWindow', mapListing.latitude, mapListing.logitude);
+    e.preventDefault();
+     $scope.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: new google.maps.LatLng(mapListing.latitude, mapListing.logitude),
+          zoomControl: true,
+          mapTypeControl: true,
+          scaleControl: true,
+          streetViewControl: true,
+          rotateControl: true,
+          fullscreenControl: true,
+          mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+              mapTypeIds: ['roadmap', 'terrain']
+           }
+        }); 
+    var markerlocal = new google.maps.Marker({
+        map: $scope.map,
+        title: mapListing.title,
+        position:new google.maps.LatLng(mapListing.latitude, mapListing.logitude),
+        animation:google.maps.Animation.BOUNCE
+    });    
+  }
+
+$scope.loadMyMap = function () {
+    var data = $scope.airbnblistings;  
+    console.log("data: ", data.length, ", " , data);  
+ 
+   var geocoder = new google.maps.Geocoder();
+   $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions); 
+   var infoWindow = new google.maps.InfoWindow();  
+   var address;    
+   var j= data.length;
+   
+     //loop over all addresses
+    for(var i=0; i<j; i++) {     
+      new function(){
+         var iCopy = i;            
+          address = data[iCopy].address1 + ', ' + data[iCopy].city + ', ' + data[iCopy].state  + ' ' + data[iCopy].zip;
+          console.log('address', address);         
+          // console.log('latlong: ',results[0].geometry.location.lat(), results[0].geometry.location.lng());
+          // console.log('creating Marker:', iCopy, , data[iCopy]);                   
+          var marker = new google.maps.Marker({
+                                      map: $scope.map,
+                                      position: new google.maps.LatLng(data[iCopy].latitude,data[iCopy].logitude),
+                                      title: data[iCopy].address1 + ', ' + data[iCopy].city + ', ' + data[iCopy].state  + ' ' + data[iCopy].zip,
+                                      rowid: data[iCopy].rowid                                      
+                           });
+                            console.log('marker:',   marker.title, marker.rowid); 
+                            marker.content = '<div class="infoWindowContent">' + data[iCopy].description + '</div>';
+                            google.maps.event.addListener(marker, 'click', function(){                               
+                                                infoWindow.setContent('<h2>' + data[iCopy].title + '</h2>' + marker.content);                                                        
+                                                infoWindow.open($scope.map, marker);
+                            });
+             $scope.markers.push(marker);                   
+         }       
+    }      
+  }
 
   $scope.createListing = function (newListing) {
     if (newListing) {
@@ -49,6 +116,10 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     // console.log('email:' + email);
     $scope.useremail = email;
     window.location = "/#/login";
+  }
+
+  $scope.mapView = function () {
+   window.location = "/#/mapView";   
   }
 
   $scope.editDetails = function (editData) {
