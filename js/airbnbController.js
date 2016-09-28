@@ -242,7 +242,7 @@ app.controller('ListingDetailsCtrl', function($scope, $routeParams, airbnbFactor
     });
 
     $scope.convertNumberToArray = function(number) {
-      var numArray = new Array(5);
+      var numArray = new Array(number);
       for (var i=0; i < number; i++) {
         numArray[i] = i;
       }
