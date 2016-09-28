@@ -111,8 +111,9 @@ $scope.loadMyMap = function () {
   }
 
   $scope.handleLogin = function (email) {
-    airbnbFactory.login(email).then(function(data) {
-        airbnbFactory.user = data;
+    airbnbFactory.login(email).then(function(result) {
+      console.log("data: " + result.data);
+        airbnbFactory.user = result.data;
         $scope.loginError = false;
         window.location = "/#/login";
     }, function() {
@@ -188,6 +189,8 @@ $scope.loadMyMap = function () {
     console.log('listing:' + JSON.stringify(reviewSelectedListing));
     console.log('newReview object:' + JSON.stringify(newReview));
     newReview.listingId = airbnbFactory.reviewSelectedListing;
+    console.log(airbnbFactory.user.email);
+    newReview.email = airbnbFactory.user.email;
     airbnbFactory.createNewReview(newReview).success(function (data) {
       
     }).error(function (error) {
