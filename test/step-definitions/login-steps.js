@@ -27,8 +27,8 @@ module.exports = function () {
       });     
 
        this.Then(/^I should view the login page$/, function (done) {   
-            driver.wait(until.elementsLocated(by.xpath("//h2[./text()='Take Me Away:']")), 30000);                                                                                                                 
-            driver.findElements(by.xpath("//h2[./text()='Take Me Away:']")).then(function (elements) {
+            driver.wait(until.elementsLocated(by.xpath("//h2[./text()='Home Away, Sweet Home!']")), 30000);                                                                                                                 
+            driver.findElements(by.xpath("//h2[./text()='Home Away, Sweet Home!']")).then(function (elements) {
                 expect(elements.length).to.not.equal(0);
                 done(); 
                                                                                                                                                                                 
