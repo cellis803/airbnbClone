@@ -13,3 +13,8 @@ Background:
   Scenario: Click on a listing and navigate to the details screen 
     And I click on a listing
     Then I should see the listing details screen
+
+  Scenario: Navigate back to home screen 
+    And I click on a listing
+    And I click on Back to Listings
+    Then I should see some listings
