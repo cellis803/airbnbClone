@@ -158,7 +158,7 @@ module.exports = {
         return new Promise(
             (resolve, reject) => {
                 db.serialize(function () {
-                    var stmt = db.prepare("INSERT into listing values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    var stmt = db.prepare("INSERT into listing values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
                     stmt.run(listingObj.email,
                         listingObj.title,
                         listingObj.description,
@@ -178,7 +178,8 @@ module.exports = {
                         listingObj.image,
                         listingObj.petsAllowed,
                         listingObj.area,
-
+                        listingObj.latitude,
+                        listingObj.logitude,
                         function (error) {
                             if (error) {
                                 reject(error);
