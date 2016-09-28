@@ -56,6 +56,14 @@ var mockDbJs = {
                     });
             },
 
+            login: function(emailAddr) {
+                return new Promise(
+                    (resolve, reject) => {
+                        resolve(this.testUserObj);
+                    });
+
+            },
+
             createNewListing: function(listingObj) {
                 assert.deepEqual(listingObj, this.testListingObj);
                 return new Promise(
@@ -133,7 +141,17 @@ describe('airbnb Clone RESTful API tests', function () {
             .post('/user')
             .send(mockDbJs.testUserObj)
             .expect({rowid: 1}, done);
-    }); 
+    });
+    
+    it('GET /user/:email should return a valid user', function testLogin(done) {
+        request(server)
+            .get('/user/test@ssa.gov')
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, result) {
+                assert.deepEqual(result.body, mockDbJs.testUserObj);
+                done();
+            });
+    });   
 
     it('POST /listing should create a new listing', function testCreateNewListing(done) {
         request(server)

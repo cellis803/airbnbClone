@@ -70,7 +70,20 @@ describe('airbnb Clone DB tests', function () {
                 }
             );
 
-        });   
+        });  
+
+        it('login function should return valid user', function(done) {
+            
+            var emailAddr = "cellis803@gmail.com";
+
+            db.login(emailAddr).then(
+                (result) => {
+                    expect(result.email).should.exist;
+                    done();
+                }
+            );
+
+        });          
 
         it('createNewListing function should return new rowid', function(done) {
 

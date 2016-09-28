@@ -34,8 +34,6 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     });
  }
 
-
-
   $scope.openInfoWindow = function (e, mapListing) {
     console.log('openInfoWindow', mapListing.latitude, mapListing.logitude);
     e.preventDefault();
@@ -127,15 +125,29 @@ $scope.loadMyMap = function () {
   }
 
   $scope.handleLogin = function (email) {
-    // console.log('email:' + email);
-    $scope.useremail = email;
-    window.location = "/#/login";
+    airbnbFactory.login(email).then(function(data) {
+        airbnbFactory.user = data;
+        $scope.loginError = false;
+        window.location = "/#/login";
+    }, function() {
+        $scope.loginError = false;
+        console.log("could not log in user");
+    });
+
   }
 
+ 
   $scope.mapView = function (allListings) {
    airbnbFactory.airbnblistings = allListings; 
    window.location = "/#/mapView";   
   }
+
+
+  $scope.logout = function() {
+        $scope.useremail = "";
+        $scope.user = null;
+   }    
+ 
 
   $scope.editDetails = function (editData) {
     $scope.editListing = true;
