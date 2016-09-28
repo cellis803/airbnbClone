@@ -40,7 +40,7 @@
       </div>
       <div id="reviews">
 
-        <h3>Reviews</h3>
+        <h3 ng-if="listingReviews.length > 0">Reviews ({{listingReviews.length}})</h3>
         <div class="review" ng-repeat="review in listingReviews ">
 
           <p>Review Title: {{review.reviewTitle}}<br/>
