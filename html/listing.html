@@ -394,7 +394,7 @@
 
 
 </div>
-
+<div ng-init="init()" >
 <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">
   <div class="thumbnail">
     <h3>{{airbnblisting.title}}</h3>
@@ -429,4 +429,5 @@
 
     </div>
   </div>
+</div>
 </div>

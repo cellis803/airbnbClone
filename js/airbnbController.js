@@ -18,11 +18,15 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
     max: 100000
   }
 
-  airbnbFactory.getListings().success(function (data) {
-    $scope.airbnblistings = data;
-  }).error(function (error) {
-    console.log(error);
-  });
+
+  $scope.init = function() {
+    airbnbFactory.getListings().success(function (data) {
+      $scope.airbnblistings = data;
+    }).error(function (error) {
+      console.log(error);
+    });
+  };
+
 
   $scope.createListing = function (newListing) {
     if (newListing) {
