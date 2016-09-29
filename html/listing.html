@@ -220,6 +220,7 @@
     <input type="hidden"  class="form-control" ng-model="newListing.latitude" ng-init="newListing.latitude=1" />
     <input type="hidden"  class="form-control" ng-model="newListing.logitude" ng-init="newListing.logitude=1" />
     <button class="btn btn-primary listing-button" ng-click="createListing(newListing);" ng-show="addListing">Add</button>
+    <a ng-click="populateAddSampleData(newListing)" ng-show="addListing">.</a>
 
   </div>
 
@@ -402,7 +403,7 @@
 
 </div>
 
- <div ng-init="init()" >
+<div ng-init="init()" >
 <div class="col-sm-4 airbnblisting" ng-repeat="airbnblisting in airbnblistings | airbnbFilter:rentalAmt | orderBy:'-rowid'">
   <div class="thumbnail">
     <h3>{{airbnblisting.title}}</h3>
@@ -438,6 +439,6 @@
     </div>
   </div>
 </div>
-</div>
+ </div>
 
  
