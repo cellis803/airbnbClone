@@ -76,7 +76,6 @@ Background:
     And I select "11" in the "Expiration Month" field
     And I select "2017" in the "Expiration Year" field
     And I click on "Make Reservation"
-    And I click on "Make Reservation"
     And I click on "Go back to rental property"
     Then I should see some listings   
 
