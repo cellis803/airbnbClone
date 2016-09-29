@@ -76,7 +76,7 @@
 }
  
 #map{
-    top: 25px;
+    
     padding: 25px;
     height:700px; 
     width:800px; 
@@ -111,3 +111,8 @@
      cursor: pointer; 
        }
 
+#listingSelection {
+  top: 25px;
+  height: 700px;
+  overflow-y: scroll;
+}
