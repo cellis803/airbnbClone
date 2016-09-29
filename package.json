@@ -7,7 +7,8 @@
     "pretest": "node ./test/cleanDB.js",
     "test": "mocha",
     "test-jenkins": "istanbul cover --report cobertura node_modules/mocha/bin/_mocha -- -R mocha-junit-reporter --reporter-options mochaFile=./test/reports/mocha.xml",
-    "acceptance-tests": "node ./test/cleanDB.js && node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects"
+    "acceptance-tests": "node ./test/cleanDB.js && node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects ",
+    "cucumber-report" : "start test/reports/cucumber-report.html"
   },
   "repository": {
     "type": "git",

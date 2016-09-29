@@ -128,6 +128,11 @@ $scope.loadMyMap = function () {
   }
 
   $scope.handleLogin = function (email) {
+
+    if (email === undefined) {
+      email = airbnbFactory.user.email;
+    }
+
     airbnbFactory.login(email).then(function(result) {
         airbnbFactory.user = result.data;
         $scope.loginError = false;
