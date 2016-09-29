@@ -1,54 +1,37 @@
 <div class="col-sm-12 review-form" ng-if="createReview">
     <h3>Add a Review</h3>
-    <!--<div class="row listing-form-row">
-        <div class="col-sm-6">
-            <div class="input-group">
-                <span class="input-group-addon">Email</span>
-                <input type="text" placeholder="Email" class="form-control" ng-model="newReview.email" autofocus required/>
-            </div>
-        </div>
-    </div>-->
+
     <div class="row listing-form-row">
         <div class="col-sm-6">
             <div class="input-group">
-                <span class="input-group-addon">Month and Date of Stay</span>
+                <span class="input-group-addon">Month and Year of Stay</span>
                 <input type="text" placeholder="August 2016" class="form-control" ng-model="newReview.arrivalDate" required/>
             </div>
-        </div>
-    </div>
-    <br>
-    <div class="row listing-form-row">
-        <div class="col-sm-3">
+            <br>
+            <!--<div class="col-sm-3">-->
             <div class="input-group">
                 <span class="input-group-addon">Rating</span>
                 <input type="text" placeholder="1 - 5 (high)" class="form-control" ng-model="newReview.rating" required/>
             </div>
-        </div>
-    </div>
-    <br>
-    <div class="row listing-form-row">
-        <div class="col-sm-6">
+            <br>
             <div class="input-group">
                 <span class="input-group-addon">Review Summary</span>
                 <input type="text" placeholder="Brief review comment" class="form-control" ng-model="newReview.reviewTitle" required/>
             </div>
-        </div>
-    </div>
-    <br>
-    <div class="row listing-form-row">
-        <div class="col-sm-10">
+            <br>
             <div class="input-group">
                 <span class="input-group-addon">Review</span>
                 <input type="text" placeholder="Detailed review" class="form-control" ng-model="newReview.review" />
             </div>
-        </div>
-    </div>
-    <br>
-    <div class="row listing-form-row">
-        <div class="col-sm-4">
+            <br>
             <div class="input-group">
                 <button class="btn btn-primary btn-success" ng-click="createReview(reviewSelectedListing, newReview);" ng-show="createReview">Submit Review</button>
                 <button class="btn btn-primary btn-danger" ng-click="cancel();">Cancel</button>
+            </div>
+        </div>
+        <div class="col-sm-2 airbnblisting">
+            <div class="input-group">
+               <img class="listingImage" ng-src="static/images/{{imageName}}" alt="">
             </div>
         </div>
     </div>
