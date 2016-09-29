@@ -277,6 +277,14 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
    reservationInfo.year = '2020';    
  }  
 
+ $scope.populateReviewSampleData  = function(newReview) {
+   console.log('review info:', newReview);
+   newReview.arrivalDate= 'September 2016';
+   newReview.rating = '5';
+   newReview.reviewTitle = 'Fabulous time';
+   newReview.review = 'Highly recommend this place. Loved it.';
+ }  
+
 });
 
 app.controller('ListingDetailsCtrl', function ($scope, $routeParams, airbnbFactory) {
