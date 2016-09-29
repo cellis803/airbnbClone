@@ -22,7 +22,7 @@ Background:
   Scenario: Create a Review 
     And I click on a listing
     And I click on "Create Review"
-    And I enter "September 2016" into the "Month and Date of Stay" field
+    And I enter "September 2016" into the "Month and Year of Stay" field
     And I enter "5" into the "Rating" field 
     And I enter "Review summary" into the "Review Summary" field
     And I enter "Review text" into the "Review" field      
@@ -33,7 +33,7 @@ Background:
   Scenario: Cancel Review creation 
     And I click on a listing
     And I click on "Create Review"
-    And I enter "September 2016" into the "Month and Date of Stay" field
+    And I enter "September 2016" into the "Month and Year of Stay" field
     And I enter "5" into the "Rating" field 
     And I enter "Review summary" into the "Review Summary" field
     And I enter "Review text" into the "Review" field      

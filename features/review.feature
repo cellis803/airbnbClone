@@ -12,7 +12,7 @@ Background:
   And I click on "Create Review"
 
   Scenario: Make a Review
-    And I enter "September 2016" into the "Month and Date of Stay" field  
+    And I enter "September 2016" into the "Month and Year of Stay" field  
     And I enter "5" into the "Rating" field 
     And I enter "Review summary" into the "Review Summary" field
     And I enter "Review text" into the "Review" field      
