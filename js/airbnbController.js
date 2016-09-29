@@ -7,6 +7,7 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
   $scope.reserveSelectedListing = airbnbFactory.reserveSelectedListing;
 
   $scope.newListing = {};
+  $scope.reservationInfo = {};
 
   $scope.airbnbreviews;
   $scope.newReview = {};
@@ -25,9 +26,9 @@ app.controller('airbnbCtrl', function ($http, $scope, airbnbFactory, $routeParam
       mapTypeId: google.maps.MapTypeId.TERRAIN
   }
  
-
  $scope.init = function() {
   airbnbFactory.getListings().success(function (data) {
+      console.log('data:', data);
       $scope.airbnblistings = data;
     }).error(function (error) {
       console.log(error);
@@ -135,6 +136,7 @@ $scope.loadMyMap = function () {
 
     airbnbFactory.login(email).then(function(result) {
         airbnbFactory.user = result.data;
+         $scope.airbnblistings =  $scope.init;
         $scope.loginError = false;
         window.location = "/#/login";
     }, function() {
@@ -143,7 +145,6 @@ $scope.loadMyMap = function () {
     });
 
   }
-
  
   $scope.mapView = function (allListings) {
     airbnbFactory.airbnblistings = allListings;
@@ -226,7 +227,47 @@ $scope.loadMyMap = function () {
       airbnbFactory.reviewSelectedListing = listing;
       console.log('$scope.reviewSelectedListing:', airbnbFactory.reviewSelectedListing);
       window.location = "/#/listing/" + airbnbFactory.reviewSelectedListing + "/review";
-    }  
+    }
+
+
+ $scope.populateAddSampleData = function(newListing) {
+   console.log('populate:', newListing);
+   newListing.title = 'Amazing overwater bungalow suites in San Juan!';
+   newListing.address1 = '150 Calle A';
+   newListing.city = 'San Juan';
+   newListing.state = 'PR';
+   newListing.zip = '00926';
+   newListing.city = 'San Juan';
+   newListing.country = 'USA';
+   newListing.type = 'House';
+   newListing.price = '6000';
+   newListing.duration = 'Weekly';
+   newListing.description = 'The unique and ubiquitous island of San Juan is world-renowned for its Polynesian charm, colorful culture and romantic ambiance';
+   newListing.bedrooms = '3';
+   newListing.bathrooms = '3';
+   newListing.area = '2650';
+   newListing.pool = '0';
+   newListing.petsAllowed = '1';
+   newListing.phone = '563-458-2490';
+ }
+
+
+ $scope.populateReserveSampleData  = function(reservationInfo) {
+   console.log('reserve info:', reservationInfo);
+   reservationInfo.startdate= '10/02/2016';
+   reservationInfo.enddate = '10/09/2016';
+   reservationInfo.firstName = 'John';
+   reservationInfo.lastName = 'Morenz';
+   reservationInfo.address1 = '6400 Security Blvd';
+   reservationInfo.city = 'Woodlawn';
+   reservationInfo.state = 'MD';
+   reservationInfo.zip = '21235';
+   reservationInfo.country = 'US';
+   reservationInfo.cardHolderName = 'Social Security Administration';
+   reservationInfo.cardNumber = '3076-1637-3284-3407';
+   reservationInfo.month = '11';
+   reservationInfo.year = '2020';    
+ }  
 
 });
 
