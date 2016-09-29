@@ -37,3 +37,22 @@ Background:
     And I enter "Review text" into the "Review" field      
     And I click on "Cancel"
     Then I should see the listing details screen 
+  
+  Scenario: Make a Reservation
+    And I click on a listing
+    And I click on "Reserve"
+    And I enter "date" into the "Date From" field
+    And I enter "date" into the "Date To" field
+    And I enter "Chris" into the "First Name" field
+    And I enter "D" into the "Middle" field
+    And I enter "Ellis" into the "Last Name" field
+    And I enter "100 House St." into the "Address" field
+    And I enter "Baltimore" into the "City" field
+    And I select "Maryland" in the "State" field
+    And I enter "21244" into the "Zip" field
+    And I enter "Chris Ellis" into the "Card Holder Name" field
+    And I enter "0000000000000000" into the "Credit/Debit Card Number" field
+    And I select "11" in the "Expiration Month" field
+    And I select "2017" in the "Expiration Year" field
+    And I click on "Make Reservation"
+    Then I should see a confirmation message

@@ -35,4 +35,13 @@
                                                                                                                                                                                 
             });        
        }); 
+
+       this.Then(/^I should see a confirmation message$/, function (done) {
+            driver.wait(until.elementsLocated(by.xpath("//h2[contains(text(),'Reservation Confirmed')]")), 30000);                                                                                                                 
+            driver.findElements(by.xpath("//h2[contains(text(),'Reservation Confirmed')]")).then(function (elements) {
+                expect(elements.length).to.not.equal(0);
+                done(); 
+                                                                                                                                                                                
+            });                                             
+       });         
 };
