@@ -15,6 +15,8 @@ app.use('/js/', express.static('js'));
 app.use('/styles/', express.static('styles'));
 app.use('/images/', express.static('images'));
 
+/* App functions */
+
 app.get('/user/:email', function(request, response) {
     console.log("get user");
     var emailAddr = request.params.email;
