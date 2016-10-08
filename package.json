@@ -8,29 +8,33 @@
     "test": "mocha",
     "test-jenkins": "istanbul cover --report cobertura node_modules/mocha/bin/_mocha -- -R mocha-junit-reporter --reporter-options mochaFile=./test/reports/mocha.xml",
     "acceptance-tests": "node ./test/cleanDB.js && node ./node_modules/selenium-cucumber-js/index.js -s ./test/step-definitions -r ./test/reports -o ./test/shared-objects ",
-    "cucumber-report" : "start test/reports/cucumber-report.html",
-    "start": "node app.js -loadTestData"
+    "cucumber-report": "start test/reports/cucumber-report.html",
+    "start": "node app.js -loadTestData",
+    "test1": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cellis803/airbnbClone.git"
+    "url": "git+https://github.com/akashpandya1/airbnbClone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cellis803/airbnbClone/issues"
+    "url": "https://github.com/akashpandya1/airbnbClone/issues"
   },
-  "homepage": "https://github.com/cellis803/airbnbClone#readme",
+  "homepage": "https://github.com/akashpandya1/airbnbClone#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "express": "^4.14.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
+    "mocha-junit-reporter": "^1.12.0",
     "moment": "^2.15.1",
     "ngmap": "^1.17.7",
     "path": "^0.12.7",
+    "rewire": "^2.5.2",
     "should": "^11.1.0",
     "sqlite3": "^3.1.4",
     "sqlite3-transactions": "0.0.5",

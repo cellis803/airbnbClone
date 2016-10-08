@@ -6,7 +6,7 @@ Feature: Filtering the listings
 Background:
   Given the airbnb application is started
   When I navigate to the airbnb site
-  And I enter "cellis803@gmail.com" into the "Email" field
+  And I enter "akashpandya@gmail.com" into the "Email" field
   And I enter "test" into the "Password" field
   And I click on "Take Me Away"
 

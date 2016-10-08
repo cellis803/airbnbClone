@@ -10,13 +10,13 @@ Feature: Logging in to airbnb app
     Then I should view the login page
 
   Scenario: Successful Login
-    And I enter "cellis803@gmail.com" into the "Email" field
+    And I enter "akashpandya@gmail.com" into the "Email" field
     And I enter "test" into the "Password" field
     And I click on "Take Me Away"
     Then I should see some listings
 
   Scenario: Incomplete Login  
-    And I enter "cellis803@gmail.com" into the "Email" field
+    And I enter "akashpandya@gmail.com" into the "Email" field
     And I click on "Take Me Away"
     Then I should view the login page
 

@@ -33,7 +33,7 @@ var mockDbJs = {
             },
 
             testReviewObj : { 
-                    email: 'cellis803@gmail.com',                                                                                                                                                                                             
+                    email: 'akashpandya@gmail.com',                                                                                                                                                                                             
                     listingId: '1',                                                                                                                                                                                            
                     arrivalDate: '09-2016',                                                                                                                                                                                                  
                     reviewTitle: 'this is my test review',                                                                                                                                                                                                 

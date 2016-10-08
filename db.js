@@ -84,16 +84,16 @@ module.exports = {
 
                     console.log("loading test data...");
                     db.run("INSERT INTO user VALUES ('carolynjm4@verizon.net','Carolyn')");
-                    db.run("INSERT INTO user VALUES ('cellis803@gmail.com','Chris')");
+                    db.run("INSERT INTO user VALUES ('chrise@gmail.com','Chris')");
                     db.run("INSERT INTO user VALUES ('akashpandya@gmail.com','Akash')");
  
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Remote Lighthouse','Remote lighthouse','House',2,1,0,'122 Front Street','','Bath','ME','04530','USA','888-123-4567','500','Weekly','north-sea-1674007__340.jpg',0,1000,'43.913807','-69.814410')");
-                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','888-221-4567','750','Bi-Weekly','lands-end.jpg',1,2000,'33.674007', '-78.899835')");
+                    db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Pirates Cove','Pirates Cove','Duplex',3,2,1,'1403 South Ocean Boulevard','','Myrtle Beach','SC','29572','USA','888-221-4567','750','Bi-Weekly','lands-end.jpg',1,2000,'33.674007', '-78.899835')");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Dream View','View of Lake Superior','Condo',1,1,0,'82340 state highway 13','','Bayfield','WI','54814','USA','888-223-4567','250','Weekly','superior.jpg',1,1500, '46.817119', '-90.810749')");
                     db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Cricket Field View','Cricket Hangout','Apartment',1,1,1,'1415 W. Willow Grove Ave','','Philadelphia','PA','19118','USA','888-221-4444','250','Weekly','cricket.jpg',1,450, '40.087251', '-75.184051')");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Victorian','Quaint Victorian Home','Apartment',1,1,0,'717 Washington Street','','Cape May','NJ','08204','USA','888-222-3333','375','Weekly','purplevictorian.jpg',1,750, '38.935530', '-74.919645')");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Purple Tiny House','Portable Tiny Home','Home',1,1,0,'1316 Madison Ave','','Front Royal','VA','22630','USA','888-444-3333','200','Monthly','purpletinyhouse.jpg',1,350, '38.934826', '-78.205425')");
-                    db.run("INSERT INTO listing VALUES ('cellis803@gmail.com','Ship Tree House','Anchors away in a treehouse','House',1,1,0,'160 Douglas Park Rd','','Crescent City','CA','95531','USA','888-221-4444','250','Weekly','shiptreehouse.jpg',1,450, '41.793290', '-124.056765')");
+                    db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Ship Tree House','Anchors away in a treehouse','House',1,1,0,'160 Douglas Park Rd','','Crescent City','CA','95531','USA','888-221-4444','250','Weekly','shiptreehouse.jpg',1,450, '41.793290', '-124.056765')");
                     db.run("INSERT INTO listing VALUES ('akashpandya@gmail.com','Tree House','Remote Tree House with swinging bridge','House',1,1,1,'5418 Monticello Ave','','Dallas','TX','19116','USA','888-777-9999','200','Bi-Weekly','swingingbridgetreehouse.jpg',0,400, '32.826183', '-96.776574')");
                     db.run("INSERT INTO listing VALUES ('carolynjm4@verizon.net','Red and White Lighthouse','Stay in a Lighthouse','Apartment',1,1,0,'215 Lighthouse Ave','','Cape May','NJ','08204','USA','888-222-4444','1200','Bi-Weekly','ocean-947346__340.jpg',1,250, '38.932207', '-74.960712')");
                     db.run('INSERT INTO listing VALUES ("akashpandya@gmail.com","Great house in Iceland!","A mountain view","House","4","3","1","Borgartun 34",null,"REYKJAViK","ICELAND",null,null,"+23 456 56788","345","Weekly","iceland.jpg","1","3450","64.1466822","-21.8954919")');
@@ -101,12 +101,12 @@ module.exports = {
                     db.run('INSERT INTO listing VALUES ("akashpandya@gmail.com","Sydney Opera House View!","A breath taking view!","House","3","3","1","7 Hickson Rd",null,"The Rocks NSW 2000","Australia",null,null,"+34 456 67 5678","560","Weekly","sydney.png","0","3450","-33.855748","151.209404")');
                     db.run('INSERT INTO listing VALUES ("akashpandya@gmail.com","A view of Brazil!","Nice view","House","3","3","0","R. Bela Vista",null,"1024 - Centro","Sao Paulo",null,"Brazil","+56 456 6565 45","675","Weekly","chile.jpg","0","2350","-23.6302074","-46.6973008")');
                     db.run("INSERT INTO reservation VALUES (1,'carolynjm4@verizon.net',1,'1474476888675','')");
-                    db.run("INSERT INTO reservation VALUES (2,'cellis803@gmail.com',2,'1474476888675','')");
+                    db.run("INSERT INTO reservation VALUES (2,'akashpandya@gmail.com',2,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (3,'carolynjm4@verizon.net',3,'1474476888675','')");
                     db.run("INSERT INTO reservation VALUES (4,'akashpandya@gmail.com',4,'1474476888675','')");
 
                     db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',1,'July 2016','Far from civilization but a charmer',5,'Loved it. Modern conveniences inside and access to lovely ocean views')");
-                    db.run("INSERT INTO review VALUES ('cellis803@gmail.com',2,'June 2016','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
+                    db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',2,'June 2016','Cool adventure with kids',5,'Great location and kids and adults had a blast. No one walked the plank!')");
                     db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',2,'March 2016','Not cool',5,'My kids got on my nerves the whole week, and our car broke down.')");
                     db.run("INSERT INTO review VALUES ('carolynjm4@verizon.net',3,'January 2016','Disappointing',3,'No power and torrential rain but will try another time')");
                     db.run("INSERT INTO review VALUES ('akashpandya@gmail.com',4,'September 2016','Stay away',2,'Rooms too small and very noisy. Excellent location.')");

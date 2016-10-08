@@ -1,0 +1,14 @@
+//https://stash.ba.ssa.gov/users/684769/repos/dcps-prime-corr/browse
+
+npm set proxy=http://access.lb.ssa.gov:80
+npm set https-proxy=http://access.lb.ssa.gov:80
+npm set user-agent="Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)"
+npm config set strict-ssl false
+npm config set registry http://nexus.ba.ssa.gov:8082/nexus/content/repositories/EVAL_npmjs/
+npm install
+
+
+//npm run acceptance-tests
+//npm run cucumber-report
+//npm run test
+//npm run test-jenkins
