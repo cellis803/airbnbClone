@@ -6,7 +6,7 @@ Feature: Create a review for a listing
 Background:
   Given the airbnb application is started
   When I navigate to the airbnb site
-  And I enter "akashpandya@gmail.com" into the "Email" field
+  And I enter "cellis803@gmail.com" into the "Email" field
   And I enter "test" into the "Password" field
   And I click on "Take Me Away"
   And I click on "Create Review"

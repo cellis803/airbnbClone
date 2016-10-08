@@ -74,7 +74,7 @@ describe('airbnb Clone DB tests', function () {
 
         it('login function should return valid user', function(done) {
             
-            var emailAddr = "akashpandya@gmail.com";
+            var emailAddr = "cellis803@gmail.com";
 
             db.login(emailAddr).then(
                 (result) => {
@@ -102,10 +102,10 @@ describe('airbnb Clone DB tests', function () {
                     area: '1000',                                                                                                                                                                                                 
                     pool: '1',                                                                                                                                                                                                    
                     petsAllowed: '1',                                                                                                                                                                                             
-                    email: 'akashpandya@gmail.com',                                                                                                                                                                                 
+                    email: 'cellis803@gmail.com',                                                                                                                                                                                 
                     phone: '4109655500',                                                                                                                                                                                          
                     image: 'temp.png',                                                                                                                                                                                            
-                    name: 'akashpandya@gmail.com'
+                    name: 'cellis803@gmail.com'
                 }    
 
             db.createNewListing(listingObj).then(
@@ -143,10 +143,10 @@ describe('airbnb Clone DB tests', function () {
                     area: '1000',                                                                                                                                                                                                 
                     pool: '1',                                                                                                                                                                                                    
                     petsAllowed: '1',                                                                                                                                                                                             
-                    email: 'akashpandya@gmail.com',                                                                                                                                                                                 
+                    email: 'cellis803@gmail.com',                                                                                                                                                                                 
                     phone: '4109655500',                                                                                                                                                                                          
                     image: 'temp.png',                                                                                                                                                                                            
-                    name: 'akashpandya@gmail.com'
+                    name: 'cellis803@gmail.com'
             };       
 
             db.updateListing(listingObj).then(
@@ -160,7 +160,7 @@ describe('airbnb Clone DB tests', function () {
 
         it('createNewReview function should return new rowid', function(done) {
 
-            var reviewObj = { email: 'akashpandya@gmail.com',                                                                                                                                                                                             
+            var reviewObj = { email: 'cellis803@gmail.com',                                                                                                                                                                                             
                     listingId: '1',                                                                                                                                                                                            
                     arrivalDate: '09-2016',                                                                                                                                                                                                  
                     reviewTitle: 'this is my test review',                                                                                                                                                                                                 
